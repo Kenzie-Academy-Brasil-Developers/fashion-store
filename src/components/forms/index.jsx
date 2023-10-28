@@ -1,6 +1,7 @@
-import { StdInput } from "./inputs/index.jsx";
+import { StdInput, StdTextArea } from "./inputs/index.jsx";
 import { useForm } from "react-hook-form";
 import { MdArrowBack } from "react-icons/md"
+import { LiaPlusCircleSolid } from "react-icons/lia"
 
 export const LoginForm = () => {
 
@@ -36,12 +37,12 @@ export const LoginForm = () => {
   );
 };
 
-export const RegisterForm = () => {
+export const RegisterAdminForm = () => {
   
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }, 
   } = useForm();
 
   const submit = (payload) => {
@@ -80,7 +81,56 @@ export const RegisterForm = () => {
           {...register("passValidate")}
           error={errors.passValidate}
         />
+        <button>Cadastrar-se</button>
       </form>
     </div>
   );
 }
+
+export const RegisterProductForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const submit = (payload) => {
+    console.log(payload);
+  };
+
+  return (
+    <div>
+      <button>
+        <MdArrowBack size={20} /> Voltar
+      </button>
+      <h2>Cadastrar-se</h2>
+      <p>Seja bem vindo, administrador!</p>
+      <form onSubmit={handleSubmit(submit)}>
+        <StdInput
+          type={"text"}
+          placeholder={"Nome"}
+          {...register("name")}
+          error={errors.name}
+        />
+        <StdInput
+          type={"number"}
+          placeholder={"Preço R$"}
+          {...register("price")}
+          error={errors.price}
+        />
+        <StdInput
+          type={"text"}
+          placeholder={"Imagem (url)"}
+          {...register("image")}
+          error={errors.image}
+        />
+        <StdTextArea
+          placeholder={"Descriçao resumida"}
+          {...register("description")}
+          error={errors.description}
+        />
+        <button><LiaPlusCircleSolid size={20}/> Novo produto</button>
+      </form>
+    </div> 
+  );
+}; 
