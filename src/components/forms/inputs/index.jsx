@@ -1,12 +1,18 @@
 import { forwardRef } from "react";
 
-export const StdInput = forwardRef(({ label, id, error, ...rest }, ref) => {
+export const StdInput = forwardRef(({ error, ...rest }, ref) => {
   return (
     <>
-      <label htmlFor={id}>
-        {label}
-      </label>
       <input {...rest} ref={ref} />
+      {error && <small>{error?.message}</small>}
+    </>
+  );
+});
+
+export const StdTextArea = forwardRef(({ error, ...rest }, ref) => {
+  return (
+    <>
+      <textarea></textarea>
       {error && <small>{error?.message}</small>}
     </>
   );
