@@ -61,9 +61,17 @@ export const RequestProvider = ({ children }) => {
     }
   }
 
+  const createUser = async (formData) => {
+    try {
+        await api.post("/users", formData)
+        navigate("/login")
+    } catch (error) {
+        console.log(error)
+    }
+  }
 
   return (
-    <requestsContext.Provider value={{ listProduct, getAutoLogin, login, logout, getCurrentItem }}>
+    <requestsContext.Provider value={{ listProduct, getAutoLogin, login, logout, getCurrentItem, currentItem, createUser }}>
       {children}
     </requestsContext.Provider>
   );
