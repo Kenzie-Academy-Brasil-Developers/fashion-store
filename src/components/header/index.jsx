@@ -1,5 +1,5 @@
 import { MdOutlineShoppingCart } from "react-icons/md";
-import logoImg from "../../assets/FAshionSTORE.png"
+import logoImg from "../../assets/FAshionSTORE.png";
 
 const AppHeader = () => {
   return (
@@ -14,4 +14,4 @@ const AppHeader = () => {
   );
 };
 
-export { AppHeader }
+export { AppHeader };

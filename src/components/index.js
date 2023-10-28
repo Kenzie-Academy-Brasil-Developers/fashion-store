@@ -1,4 +1,4 @@
-import { BannerSection } from "./bannerSection/index.jsx"
-import { DefaultTemplate } from "./defaultTemplate/index.jsx"
+import { BannerSection } from "./bannerSection/index.jsx";
+import { DefaultTemplate } from "./defaultTemplate/index.jsx";
 
-export { DefaultTemplate, BannerSection }
+export { DefaultTemplate, BannerSection };
