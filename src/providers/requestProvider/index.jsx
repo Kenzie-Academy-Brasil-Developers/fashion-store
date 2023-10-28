@@ -70,6 +70,20 @@ export const RequestProvider = ({ children }) => {
     }
   }
 
+  const createItem = async (formData) => {
+    try {
+      const token = localStorage.getItem("@FSToken").accessToken
+      const { data } = await api.post("/products", formData , {
+        headers: {
+          Authorization: `Barear ${token}`
+        }
+      })
+      setListProduct(...listProduct, data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <requestsContext.Provider value={{ listProduct, getAutoLogin, login, logout, getCurrentItem, currentItem, createUser }}>
       {children}
