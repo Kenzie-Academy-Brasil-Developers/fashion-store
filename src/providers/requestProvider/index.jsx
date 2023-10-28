@@ -8,6 +8,7 @@ const navigate = useNavigate();
 
 export const RequestProvider = ({ children }) => {
   const [listProduct, setListProduct] = useState([]);
+  const [currentItem, setCurrentItem] = useState({})
 
   useEffect(async () => {
     try {
@@ -50,8 +51,19 @@ export const RequestProvider = ({ children }) => {
     navigate("/");
   };
 
+  const getCurrentItem = async (id) => {
+    try {
+        const{ data } = await api.get(`/products/${id}`)
+        setCurrentItem(data)
+        navigate("/item")
+    } catch (error) {
+        console.log(error)
+    }
+  }
+
+
   return (
-    <requestsContext.Provider value={{ listProduct, getAutoLogin, login }}>
+    <requestsContext.Provider value={{ listProduct, getAutoLogin, login, logout, getCurrentItem }}>
       {children}
     </requestsContext.Provider>
   );
