@@ -1,4 +1,4 @@
-const AppFooter = () => {
+export const AppFooter = () => {
   return (
     <>
       <footer>
@@ -7,5 +7,3 @@ const AppFooter = () => {
     </>
   );
 };
-
-export { AppFooter };
