@@ -24,7 +24,7 @@ export const RequestProvider = ({ children }) => {
       try {
         const { data } = await api.get(`/users/${user.user.id}`, {
           headers: {
-            Authorization: `Barear ${user.accessToken}`,
+            Authorization: `Bearer ${user.accessToken}`,
           },
         });
         navigate("/dashboard");

@@ -1,5 +1,5 @@
-import registerBanner from "../../assets/registerBanner.png"
-import { RegisterAdminForm } from "../../components"
+import registerBanner from "../../assets/registerBanner.png";
+import { RegisterAdminForm } from "../../components";
 
 export const RegisterPage = () => {
   return (
@@ -7,5 +7,5 @@ export const RegisterPage = () => {
       <img src={registerBanner} alt="register banner" />
       <RegisterAdminForm />
     </section>
-  )
-}
+  );
+};

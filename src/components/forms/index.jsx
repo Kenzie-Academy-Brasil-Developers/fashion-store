@@ -29,7 +29,7 @@ export const LoginForm = () => {
         error={errors.password}
       />
       <div>
-        <button type="submit" >Acessar</button>
+        <button type="submit">Acessar</button>
         <button>Cadastre-se</button>
       </div>
     </form>

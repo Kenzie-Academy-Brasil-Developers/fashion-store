@@ -7,6 +7,15 @@ import {
   RegisterProductForm,
   UpdateProductForm,
 } from "./forms/index.jsx";
+import {
+  ProductCard,
+  ProductCardModal,
+} from "./productList/productCard/index.jsx";
+import {
+  CartModal,
+  RegisterProductModal,
+  UpdateProductModal,
+} from "./modal/index.jsx";
 
 export {
   DefaultTemplate,
@@ -16,4 +25,10 @@ export {
   RegisterAdminForm,
   RegisterProductForm,
   UpdateProductForm,
+  ProductCard,
+  ProductCardModal,
+  CartModal,
+  RegisterProductModal,
+  UpdateProductModal,
 };
+
