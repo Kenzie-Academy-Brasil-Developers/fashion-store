@@ -9,6 +9,7 @@ const navigate = useNavigate();
 export const RequestProvider = ({ children }) => {
   const [listProduct, setListProduct] = useState([]);
   const [currentItem, setCurrentItem] = useState({})
+  const [editingItem, setEditingItem] = useState({})
 
   useEffect(async () => {
     try {
@@ -79,6 +80,28 @@ export const RequestProvider = ({ children }) => {
         }
       })
       setListProduct(...listProduct, data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const updateItem = async (formData, id) => {
+    try {
+      const token = localStorage.getItem("@FSToken").accessToken
+      const { data } = await api.put(`/products/${id}` , formData, {
+        headers: {
+          Authorization: `Barear ${token}`
+        }
+      })
+      const newListProduct = listProduct.map((product) => {
+        if (product.id === editingItem.id) {
+          return data
+        }else{
+          return product
+        }
+      })
+      setListProduct(newListProduct)
+      setEditingItem({})
     } catch (error) {
       console.log(error)
     }
