@@ -107,8 +107,26 @@ export const RequestProvider = ({ children }) => {
     }
   }
 
+  const deleteItem = async (id) => {
+    try {
+      const token = localStorage.getItem("FSToken").accessToken
+      api.delete(`/products/${id}` ,{
+        headers: {
+          Authorization: `Barear ${token}`
+        }
+      })
+      const newListItem = listProduct.map((product) => {
+        if (product.id != id) {
+          return product
+        }
+      })
+      setListProduct(newListItem)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
-    <requestsContext.Provider value={{ listProduct, getAutoLogin, login, logout, getCurrentItem, currentItem, createUser }}>
+    <requestsContext.Provider value={{ listProduct, getAutoLogin, login, logout, getCurrentItem, currentItem, createUser, createItem, updateItem }}>
       {children}
     </requestsContext.Provider>
   );
