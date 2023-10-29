@@ -1,5 +1,10 @@
 
-import { MdOutlineAddShoppingCart, MdRemove } from "react-icons/md";
+import {
+  MdOutlineAddShoppingCart,
+  MdRemove,
+  MdOutlineModeEditOutline,
+  MdOutlineDeleteOutline
+} from "react-icons/md";
 import { Link } from "react-router-dom";
 
 export const ProductCard = ({product}) => {
@@ -34,3 +39,20 @@ export const ProductCardModal = () => {
     </li>
   );
 };
+
+
+export const ProductCardAdminView = () => {
+  return (
+    <li>
+      <img src="" alt="product image" />
+      <div>
+        <h2>ProductName</h2>
+        <p>ProductValue</p>
+      </div>
+      <div>
+        <button><MdOutlineModeEditOutline size={20}/></button>
+        <button><MdOutlineDeleteOutline size={20}/></button>
+      </div>
+    </li>
+  )
+}

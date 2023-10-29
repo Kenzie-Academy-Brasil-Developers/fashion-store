@@ -10,6 +10,7 @@ import {
 import {
   ProductCard,
   ProductCardModal,
+  ProductCardAdminView,
 } from "./productList/productCard/index.jsx";
 import {
   CartModal,
@@ -30,5 +31,5 @@ export {
   CartModal,
   RegisterProductModal,
   UpdateProductModal,
+  ProductCardAdminView,
 };
-
