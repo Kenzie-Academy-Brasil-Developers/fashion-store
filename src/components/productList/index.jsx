@@ -1,11 +1,15 @@
+import { useRequestContext } from "../../providers/requestProvider/index.jsx";
 import { ProductCard } from "./productCard/index.jsx";
 
 export const ProductsList = () => {
+  const {listProduct} = useRequestContext()
   return (
     <section>
       <h2>Produtos em Destaque</h2>
       <ul>
-        <ProductCard />
+        {listProduct.map((product) => {
+          return <ProductCard product={product}/>
+        })}
       </ul>
     </section>
   );

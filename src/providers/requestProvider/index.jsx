@@ -56,7 +56,6 @@ export const RequestProvider = ({ children }) => {
     try {
         const{ data } = await api.get(`/products/${id}`)
         setCurrentItem(data)
-        navigate("/item")
     } catch (error) {
         console.log(error)
     }
