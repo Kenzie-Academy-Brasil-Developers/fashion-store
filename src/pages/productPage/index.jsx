@@ -16,14 +16,14 @@ export const ProductPage = () => {
             fugiat praesentium. Saepe omnis at modi reiciendis et autem
             architecto?
           </p>
-          <button><MdOutlineAddShoppingCart size={20}/> Adicionar ao carrinho</button>
+          <button>
+            <MdOutlineAddShoppingCart size={20} /> Adicionar ao carrinho
+          </button>
         </div>
       </section>
       <section>
         <h2>Veja também</h2>
-        <ul>
-          {/* lista de produtos */}
-        </ul>
+        <ul>{/* lista de produtos */}</ul>
       </section>
     </>
   );

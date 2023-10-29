@@ -6,20 +6,20 @@ export const requestsContext = createContext({});
 
 export const RequestProvider = ({ children }) => {
   const [listProduct, setListProduct] = useState([]);
-  const [currentItem, setCurrentItem] = useState({})
-  const [editingItem, setEditingItem] = useState({})
+  const [currentItem, setCurrentItem] = useState({});
+  const [editingItem, setEditingItem] = useState({});
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     const getProducts = async () => {
-          try {
-            const { data } = await api.get("/products");
-            setListProduct(data);
-          } catch (error) {
-            console.log(error);
-          }
-    }
-    getProducts()
+      try {
+        const { data } = await api.get("/products");
+        setListProduct(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProducts();
   }, []);
 
   const getAutoLogin = async () => {
@@ -56,78 +56,90 @@ export const RequestProvider = ({ children }) => {
 
   const getCurrentItem = async (id) => {
     try {
-        const{ data } = await api.get(`/products/${id}`)
-        setCurrentItem(data)
+      const { data } = await api.get(`/products/${id}`);
+      setCurrentItem(data);
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const createUser = async (formData) => {
     try {
-        await api.post("/users", formData)
-        navigate("/login")
+      await api.post("/users", formData);
+      navigate("/login");
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const createItem = async (formData) => {
     try {
-      const token = localStorage.getItem("@FSToken").accessToken
-      const { data } = await api.post("/products", formData , {
+      const token = localStorage.getItem("@FSToken").accessToken;
+      const { data } = await api.post("/products", formData, {
         headers: {
-          Authorization: `Barear ${token}`
-        }
-      })
-      setListProduct(...listProduct, data)
+          Authorization: `Barear ${token}`,
+        },
+      });
+      setListProduct(...listProduct, data);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const updateItem = async (formData, id) => {
     try {
-      const token = localStorage.getItem("@FSToken").accessToken
-      const { data } = await api.put(`/products/${id}` , formData, {
+      const token = localStorage.getItem("@FSToken").accessToken;
+      const { data } = await api.put(`/products/${id}`, formData, {
         headers: {
-          Authorization: `Barear ${token}`
-        }
-      })
+          Authorization: `Barear ${token}`,
+        },
+      });
       const newListProduct = listProduct.map((product) => {
         if (product.id === editingItem.id) {
-          return data
-        }else{
-          return product
+          return data;
+        } else {
+          return product;
         }
-      })
-      setListProduct(newListProduct)
-      setEditingItem({})
+      });
+      setListProduct(newListProduct);
+      setEditingItem({});
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const deleteItem = async (id) => {
     try {
-      const token = localStorage.getItem("FSToken").accessToken
-      api.delete(`/products/${id}` ,{
+      const token = localStorage.getItem("FSToken").accessToken;
+      api.delete(`/products/${id}`, {
         headers: {
-          Authorization: `Barear ${token}`
-        }
-      })
+          Authorization: `Barear ${token}`,
+        },
+      });
       const newListItem = listProduct.map((product) => {
         if (product.id != id) {
-          return product
+          return product;
         }
-      })
-      setListProduct(newListItem)
+      });
+      setListProduct(newListItem);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
   return (
-    <requestsContext.Provider value={{ listProduct, getAutoLogin, login, logout, getCurrentItem, currentItem, createUser, createItem, updateItem }}>
+    <requestsContext.Provider
+      value={{
+        listProduct,
+        getAutoLogin,
+        login,
+        logout,
+        getCurrentItem,
+        currentItem,
+        createUser,
+        createItem,
+        updateItem,
+      }}
+    >
       {children}
     </requestsContext.Provider>
   );

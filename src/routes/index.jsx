@@ -1,5 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import { HomePage , LoginPage, RegisterPage, ProductPage, Dashboard, ProductsListAdminView } from "../pages";
+import {
+  HomePage,
+  LoginPage,
+  RegisterPage,
+  ProductPage,
+  Dashboard,
+  ProductsListAdminView,
+} from "../pages";
 
 export const MainRoutes = () => {
   return (
@@ -13,4 +20,3 @@ export const MainRoutes = () => {
     </Routes>
   );
 };
-
