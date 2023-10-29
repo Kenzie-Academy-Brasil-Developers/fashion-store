@@ -1,6 +1,6 @@
 import { BannerSection, ProductsList } from "../../components";
 
-export const Dashboard = () => {
+export const HomePage = () => {
   return (
     <div>
       <BannerSection />

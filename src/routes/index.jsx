@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import { Dashboard, LoginPage, RegisterPage, ProductPage } from "../pages";
+import { HomePage , LoginPage, RegisterPage, ProductPage } from "../pages";
 
 export const MainRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Dashboard />} />
+      <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/product/:id" element={<ProductPage />}/>
+      <Route path="/product/:id" element={<ProductPage />} />
     </Routes>
   );
 };
