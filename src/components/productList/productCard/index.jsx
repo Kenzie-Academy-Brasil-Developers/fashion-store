@@ -1,9 +1,6 @@
-<<<<<<< HEAD
+
 import { MdOutlineAddShoppingCart, MdRemove } from "react-icons/md";
-=======
-import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
->>>>>>> 0df038a6897f2134dc632f92ba74e40946703415
 
 export const ProductCard = ({product}) => {
   return (

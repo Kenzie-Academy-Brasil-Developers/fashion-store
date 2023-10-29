@@ -1,23 +1,25 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
 export const requestsContext = createContext({});
-export const useRequestContext = useContext(requestsContext);
-const navigate = useNavigate();
 
 export const RequestProvider = ({ children }) => {
   const [listProduct, setListProduct] = useState([]);
   const [currentItem, setCurrentItem] = useState({})
   const [editingItem, setEditingItem] = useState({})
-
-  useEffect(async () => {
-    try {
-      const { data } = await api.get("/products");
-      setListProduct(data);
-    } catch (error) {
-      console.log(error);
+  const navigate = useNavigate();
+  
+  useEffect(() => {
+    const getProducts = async () => {
+          try {
+            const { data } = await api.get("/products");
+            setListProduct(data);
+          } catch (error) {
+            console.log(error);
+          }
     }
+    getProducts()
   }, []);
 
   const getAutoLogin = async () => {
