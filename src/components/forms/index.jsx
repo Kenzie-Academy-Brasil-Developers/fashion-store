@@ -98,11 +98,6 @@ export const RegisterProductForm = () => {
 
   return (
     <div>
-      <button>
-        <MdArrowBack size={20} /> Voltar
-      </button>
-      <h2>Cadastrar-se</h2>
-      <p>Seja bem vindo, administrador!</p>
       <form onSubmit={handleSubmit(submit)}>
         <StdInput
           type={"text"}
@@ -148,11 +143,6 @@ export const UpdateProductForm = () => {
 
   return (
     <div>
-      <button>
-        <MdArrowBack size={20} /> Voltar
-      </button>
-      <h2>Cadastrar-se</h2>
-      <p>Seja bem vindo, administrador!</p>
       <form onSubmit={handleSubmit(submit)}>
         <StdInput
           type={"text"}
@@ -178,7 +168,7 @@ export const UpdateProductForm = () => {
           error={errors.description}
         />
         <button>
-          <MdOutlineModeEditOutline size={20} /> Novo produto
+          <MdOutlineModeEditOutline size={20} /> Salvar Alterações
         </button>
       </form>
     </div>

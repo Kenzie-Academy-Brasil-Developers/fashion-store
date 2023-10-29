@@ -24,7 +24,7 @@ export const RegisterProductModal = () => {
         <MdClose size={20} />
         <h2>Novo Produto</h2>
         <RegisterProductForm />
-      </div>
+      </div> 
     </div>
   );
 };
