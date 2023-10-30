@@ -5,7 +5,7 @@ import { MdClose } from "react-icons/md";
 import { loginContext } from "../../providers/loginProvider";
 
 export const CartModal = () => {
-  const {setCartIsOpen} = useContext(loginContext)
+  const { setCartIsOpen } = useContext(loginContext);
   return (
     <div className="overlay">
       <div className="modalContainer" role="dialog">
@@ -21,7 +21,7 @@ export const CartModal = () => {
 };
 
 export const RegisterProductModal = () => {
-  const {setCreateProduct} = useContext(loginContext)
+  const { setCreateProduct } = useContext(loginContext);
   return (
     <div className="overlay">
       <div className="modalContainer">
@@ -34,7 +34,7 @@ export const RegisterProductModal = () => {
 };
 
 export const UpdateProductModal = () => {
-  const {setEditingProduct} = useContext(loginContext)
+  const { setEditingProduct } = useContext(loginContext);
   return (
     <div className="overlay">
       <div className="modalContainer">
