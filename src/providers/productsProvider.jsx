@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../services/api";
 
-export const productContext = createContext({})
+export const productContext = createContext({});
 
 export const ProductProvider = ({ children }) => {
   const [listProduct, setListProduct] = useState([]);
@@ -118,6 +118,7 @@ export const ProductProvider = ({ children }) => {
   }
 
   return (
+<<<<<<< HEAD:src/providers/productsPrivider.jsx
     <productContext.Provider value={{
       listProduct,
       currentItem,
@@ -139,3 +140,22 @@ export const ProductProvider = ({ children }) => {
     </productContext.Provider>
   )
 }
+=======
+    <productContext.Provider
+      value={{
+        listProduct,
+        currentItem,
+        setCurrentItem,
+        editingItem,
+        setEditingItem,
+        getCurrentItem,
+        createItem,
+        updateItem,
+        deleteItem,
+      }}
+    >
+      {children}
+    </productContext.Provider>
+  );
+};
+>>>>>>> 9bb1a17d4828fd3dfa31f0050702e91e0eb45345:src/providers/productsProvider.jsx

@@ -4,9 +4,13 @@ import { useContext } from "react";
 import { productContext } from "../../providers/productsPrivider";
 
 export const AppHeader = () => {
+<<<<<<< HEAD
   const { setCartIsOpen } = useContext(productContext);
   const pathname = window.location.pathname;
 
+=======
+  const pathname = window.location.pathname;
+>>>>>>> 9bb1a17d4828fd3dfa31f0050702e91e0eb45345
   return (
     <header>
       <div>
