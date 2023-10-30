@@ -12,7 +12,7 @@ export const StdInput = forwardRef(({ error, ...rest }, ref) => {
 export const StdTextArea = forwardRef(({ error, ...rest }, ref) => {
   return (
     <>
-      <textarea {...rest} ref={ref} ></textarea>
+      <textarea {...rest} ref={ref}></textarea>
       {error && <small>{error.message}</small>}
     </>
   );

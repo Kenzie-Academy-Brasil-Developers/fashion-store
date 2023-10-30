@@ -3,7 +3,6 @@ import { ProductCardAdminView } from "../../../components";
 import { Link } from "react-router-dom";
 import { RegisterProductModal, UpdateProductModal } from "../../../components";
 
-
 export const ProductsListAdminView = () => {
   return (
     <>
