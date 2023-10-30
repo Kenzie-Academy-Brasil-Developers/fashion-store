@@ -3,7 +3,6 @@ import logoImg from "../../assets/FAshionSTORE.png";
 
 export const AppHeader = () => {
   const pathname = window.location.pathname
-  console.dir(pathname)
   return (
     <header>
       <div>
@@ -13,7 +12,7 @@ export const AppHeader = () => {
             <MdOutlineShoppingCart size={25} />
           </button>
         )}
-        {pathname === `/product/:id` && (
+        {pathname.includes("product/") && (
           <button>
             <MdOutlineShoppingCart size={25} />
           </button>
