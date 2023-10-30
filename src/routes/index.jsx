@@ -17,6 +17,7 @@ export const MainRoutes = () => {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/dashboard/products" element={<ProductsListAdminView />} />
       <Route path="/product/:id" element={<ProductPage />} />
+      <Route path="*" element={<HomePage/>}/>
     </Routes>
   );
 };

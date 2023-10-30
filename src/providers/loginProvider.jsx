@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext} from "react";
 import { api } from "../services/api";
 import { useNavigate } from "react-router-dom";
 
@@ -51,7 +51,7 @@ export const LoginProvider = ({ children }) => {
   
   
   return (
-    <requestsContext.Provider
+    <loginContext.Provider
       value={{
         getAutoLogin,
         login,
@@ -60,6 +60,6 @@ export const LoginProvider = ({ children }) => {
       }}
     >
       {children}
-    </requestsContext.Provider>
+    </loginContext.Provider>
   );
 };

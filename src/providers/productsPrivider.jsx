@@ -85,7 +85,7 @@ export const ProductProvider = ({ children }) => {
   };
 
   return (
-    <requestContext.Provider value={{
+    <productContext.Provider value={{
       listProduct,
       currentItem,
       setCurrentItem,
@@ -97,6 +97,6 @@ export const ProductProvider = ({ children }) => {
       deleteItem
     }}>
       {children}
-    </requestContext.Provider>
+    </productContext.Provider>
   )
 }
