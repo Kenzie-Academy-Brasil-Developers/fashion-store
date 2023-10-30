@@ -1,10 +1,16 @@
+import { Link } from "react-router-dom";
+
 export const Dashboard = () => {
   return (
     <>
       <nav>
         <ul>
-          <li>Início</li>
-          <li>Produtos</li>
+          <Link to={"/dashboard"}>
+            <li>Início</li>
+          </Link>
+          <Link to={"/dashboard/products"}>
+            <li>Produtos</li>
+          </Link>
         </ul>
       </nav>
       <h1>Painel do Administrador</h1>

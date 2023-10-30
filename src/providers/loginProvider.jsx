@@ -1,4 +1,4 @@
-import { createContext} from "react";
+import { createContext } from "react";
 import { api } from "../services/api";
 import { useNavigate } from "react-router-dom";
 
@@ -48,15 +48,13 @@ export const LoginProvider = ({ children }) => {
     }
   };
 
-  
-  
   return (
     <loginContext.Provider
       value={{
         getAutoLogin,
         login,
         logout,
-        createUser
+        createUser,
       }}
     >
       {children}

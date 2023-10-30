@@ -7,6 +7,7 @@ import {
   Dashboard,
   ProductsListAdminView,
 } from "../pages";
+import { PrivateRoutes } from "../components/privateRoutes";
 
 export const MainRoutes = () => {
   return (
@@ -14,10 +15,16 @@ export const MainRoutes = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      {/* <Route path="/dashboard" element={<PrivateRoutes />}>
+        <Route index element={<Dashboard />} />
+      </Route>
+      <Route path="/dashboard/products" element={<PrivateRoutes />}>
+        <Route index element={<ProductsListAdminView />} />
+      </Route> */}
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/dashboard/products" element={<ProductsListAdminView />} />
       <Route path="/product/:id" element={<ProductPage />} />
-      <Route path="*" element={<HomePage/>}/>
+      <Route path="*" element={<HomePage />} />
     </Routes>
   );
 };

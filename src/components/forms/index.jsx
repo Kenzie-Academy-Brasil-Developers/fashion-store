@@ -94,7 +94,7 @@ export const RegisterAdminForm = () => {
 };
 
 export const RegisterProductForm = () => {
-  const { createItem } = useContext(productContext)
+  const { createItem } = useContext(productContext);
   const {
     register,
     handleSubmit,
@@ -102,7 +102,7 @@ export const RegisterProductForm = () => {
   } = useForm({ resolver: zodResolver(productSchema) });
 
   const submit = (payload) => {
-    createItem(payload)
+    createItem(payload);
   };
 
   return (
@@ -127,7 +127,7 @@ export const RegisterProductForm = () => {
           error={errors.image}
         />
         <StdTextArea
-          placeholder={"Descriçao resumida"}
+          placeholder={"Descriço resumida"}
           {...register("description")}
           error={errors.description}
         />
@@ -140,7 +140,7 @@ export const RegisterProductForm = () => {
 };
 
 export const UpdateProductForm = () => {
-  const {updateItem} = useContext(productContext)
+  const { updateItem } = useContext(productContext);
   const {
     register,
     handleSubmit,

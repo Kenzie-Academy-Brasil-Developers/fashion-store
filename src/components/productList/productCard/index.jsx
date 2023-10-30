@@ -9,14 +9,18 @@ import { Link } from "react-router-dom";
 import { productContext } from "../../../providers/productsPrivider";
 
 export const ProductCard = ({ product }) => {
-  const {addItemCart} = useContext(productContext)
+  const { addItemCart } = useContext(productContext);
   return (
     <li>
       <img src={product.image} alt={product.name} />
       <h2>{product.name}</h2>
       <p>{product.price}</p>
       <div>
-        <button onClick={() => {addItemCart(product)}}>
+        <button
+          onClick={() => {
+            addItemCart(product);
+          }}
+        >
           <MdOutlineAddShoppingCart size={20} />
         </button>
         <Link to={`/product/${product.id}`}>Saiba Mais!</Link>
@@ -26,8 +30,7 @@ export const ProductCard = ({ product }) => {
 };
 
 export const ProductCardModal = (product) => {
-
-  const {removeItemCart} = useContext(productContext)
+  const { removeItemCart } = useContext(productContext);
 
   return (
     <li>
@@ -36,6 +39,7 @@ export const ProductCardModal = (product) => {
         <h2>{product.name}</h2>
         <p>{product.price}</p>
       </div>
+      {product.count > 1 && <small>{`x${product.count}`}</small>}
       <button onClick={() => removeItemCart(product)}>
         <MdRemove size={20} />
       </button>
@@ -44,7 +48,7 @@ export const ProductCardModal = (product) => {
 };
 
 export const ProductCardAdminView = (product) => {
-  const {setEditingProduct, deleteItem} = useContext(productContext)
+  const { setEditingProduct, deleteItem } = useContext(productContext);
   return (
     <li>
       <img src={product.image} alt={product.name} />
@@ -54,10 +58,18 @@ export const ProductCardAdminView = (product) => {
       </div>
       <div>
         <button>
-          <MdOutlineModeEditOutline onClick={() => {setEditingProduct(product)}} size={20} />
+          <MdOutlineModeEditOutline
+            onClick={() => {
+              setEditingProduct(product);
+            }}
+            size={20}
+          />
         </button>
         <button>
-          <MdOutlineDeleteOutline onClick={() => deleteItem(product.id)} size={20} />
+          <MdOutlineDeleteOutline
+            onClick={() => deleteItem(product.id)}
+            size={20}
+          />
         </button>
       </div>
     </li>

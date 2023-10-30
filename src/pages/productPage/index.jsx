@@ -1,5 +1,5 @@
 import { MdOutlineAddShoppingCart } from "react-icons/md";
-import { ProductsList } from "../../components";
+import { ProductsList, CartModal } from "../../components";
 
 export const ProductPage = () => {
   return (
@@ -25,6 +25,7 @@ export const ProductPage = () => {
         <h2>Veja também</h2>
         <ul>{/* lista de produtos */}</ul>
       </section>
+      <CartModal/>
     </>
   );
 };

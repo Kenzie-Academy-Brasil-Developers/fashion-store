@@ -1,13 +1,16 @@
-import { BannerSection, ProductsList, RegisterProductModal, UpdateProductModal } from "../../components";
+import {
+  BannerSection,
+  ProductsList,
+  CartModal
+} from "../../components";
+
 
 export const HomePage = () => {
   return (
     <div>
       <BannerSection />
       <ProductsList />
-      <RegisterProductModal/>
-      <UpdateProductModal/>
+      <CartModal/>
     </div>
   );
 };
-
