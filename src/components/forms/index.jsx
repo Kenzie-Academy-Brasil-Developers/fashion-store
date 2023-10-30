@@ -8,6 +8,8 @@ import {
   productSchema,
   registerAdminSchema,
 } from "./index.schema.js";
+import { useContext } from "react";
+import { productContext } from "../../providers/productsPrivider.jsx";
 
 export const LoginForm = () => {
   const {
@@ -92,6 +94,7 @@ export const RegisterAdminForm = () => {
 };
 
 export const RegisterProductForm = () => {
+  const { createItem } = useContext(productContext)
   const {
     register,
     handleSubmit,
@@ -99,7 +102,7 @@ export const RegisterProductForm = () => {
   } = useForm({ resolver: zodResolver(productSchema) });
 
   const submit = (payload) => {
-    console.log(payload);
+    createItem(payload)
   };
 
   return (
@@ -137,6 +140,7 @@ export const RegisterProductForm = () => {
 };
 
 export const UpdateProductForm = () => {
+  const {updateItem} = useContext(productContext)
   const {
     register,
     handleSubmit,
@@ -144,7 +148,7 @@ export const UpdateProductForm = () => {
   } = useForm({ resolver: zodResolver(productSchema) });
 
   const submit = (payload) => {
-    console.log(payload);
+    updateItem(payload);
   };
 
   return (
