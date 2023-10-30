@@ -33,11 +33,10 @@ export const registerAdminSchema = z
   });
 
 export const productSchema = z.object({
-  name: z.string().z.min(1, "O nome do produto é obrigatótio"),
+  name: z.string().min(1, "O nome do produto é obrigatótio"),
   price: z
-    .number("Apenas números são permitidos")
-    .min(1, "O valor do produto é obrigatório")
-    .nonnegative("Forneça um valor válido"),
+    .string()
+    .min(1, "O valor do produto é obrigatório"),
   description: z.string().min(1, "A descrição do produto é obrigatótia"),
   image: z.string().url("Forneça uma url válida").min(1, "Url é obrigatória"),
-});
+}).refine(({price}) => parseInt(price) >= 0, { message : "forneça um valor válido", path: ["price"]})

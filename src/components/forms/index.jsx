@@ -2,13 +2,19 @@ import { StdInput, StdTextArea } from "./inputs/index.jsx";
 import { useForm } from "react-hook-form";
 import { MdArrowBack, MdOutlineModeEditOutline } from "react-icons/md";
 import { LiaPlusCircleSolid } from "react-icons/lia";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  loginSchema,
+  productSchema,
+  registerAdminSchema,
+} from "./index.schema.js";
 
 export const LoginForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: zodResolver(loginSchema) });
 
   const submit = (payload) => {
     console.log(payload);
@@ -41,7 +47,7 @@ export const RegisterAdminForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: zodResolver(registerAdminSchema) });
 
   const submit = (payload) => {
     console.log(payload);
@@ -71,7 +77,7 @@ export const RegisterAdminForm = () => {
           type={"password"}
           placeholder={"Senha"}
           {...register("password")}
-          error={errors.name}
+          error={errors.password}
         />
         <StdInput
           type={"password"}
@@ -90,7 +96,7 @@ export const RegisterProductForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: zodResolver(productSchema) });
 
   const submit = (payload) => {
     console.log(payload);
@@ -135,7 +141,7 @@ export const UpdateProductForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: zodResolver(productSchema) });
 
   const submit = (payload) => {
     console.log(payload);
