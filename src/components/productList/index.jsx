@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ProductCard } from "./productCard/index.jsx";
-import { productContext } from "../../providers/productsPrivider.jsx";
+import { productContext } from "../../providers/productsProvider.jsx";
 
 export const ProductsList = () => {
   const { listProduct } = useContext(productContext);

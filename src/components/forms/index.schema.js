@@ -32,11 +32,14 @@ export const registerAdminSchema = z
     path: ["passValidate"],
   });
 
-export const productSchema = z.object({
-  name: z.string().min(1, "O nome do produto é obrigatótio"),
-  price: z
-    .string()
-    .min(1, "O valor do produto é obrigatório"),
-  description: z.string().min(1, "A descrição do produto é obrigatótia"),
-  image: z.string().url("Forneça uma url válida").min(1, "Url é obrigatória"),
-}).refine(({price}) => parseInt(price) >= 0, { message : "forneça um valor válido", path: ["price"]})
+export const productSchema = z
+  .object({
+    name: z.string().min(1, "O nome do produto é obrigatótio"),
+    price: z.string().min(1, "O valor do produto é obrigatório"),
+    description: z.string().min(1, "A descrição do produto é obrigatótia"),
+    image: z.string().url("Forneça uma url válida").min(1, "Url é obrigatória"),
+  })
+  .refine(({ price }) => parseInt(price) >= 0, {
+    message: "forneça um valor válido",
+    path: ["price"],
+  });
