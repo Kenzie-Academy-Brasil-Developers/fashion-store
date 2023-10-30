@@ -6,7 +6,12 @@ export const productContext = createContext({})
 export const ProductProvider = ({ children }) => {
   const [listProduct, setListProduct] = useState([]);
   const [currentItem, setCurrentItem] = useState({});
-  const [editingItem, setEditingItem] = useState({});
+  const [editingProduct, setEditingProduct] = useState(null);
+  const [createProduct, setCreateProduct] = useState(null)
+  const [cartIsOpen, setCartIsOpen] = useState(false)
+  const [listCart, setListCart] = useState(
+    localStorage.getItem("@FSCart") ? JSON.parse(localStorage.getItem("@FSCart")): [[]]
+  )
 
   useEffect(() => {
     const getProducts = async () => {
@@ -19,6 +24,10 @@ export const ProductProvider = ({ children }) => {
     };
     getProducts();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("@FSCart", JSON.stringify(listCart))
+  }, [listCart])
 
   const getCurrentItem = async (id) => {
     try {
@@ -43,23 +52,23 @@ export const ProductProvider = ({ children }) => {
     }
   };
 
-  const updateItem = async (formData, id) => {
+  const updateItem = async (formData) => {
     try {
       const token = localStorage.getItem("@FSToken").accessToken;
-      const { data } = await api.put(`/products/${id}`, formData, {
+      const { data } = await api.put(`/products/${editingProduct.id}`, formData, {
         headers: {
           Authorization: `Barear ${token}`,
         },
       });
       const newListProduct = listProduct.map((product) => {
-        if (product.id === editingItem.id) {
+        if (product.id === editingProduct.id) {
           return data;
         } else {
           return product;
         }
       });
       setListProduct(newListProduct);
-      setEditingItem({});
+      setEditingProduct({});
     } catch (error) {
       console.log(error);
     }
@@ -84,17 +93,47 @@ export const ProductProvider = ({ children }) => {
     }
   };
 
+  const addItemCart = (product) => {
+    const newList = listCart.map((productList) => {
+      if(product.id === productList.id){
+        productList.count += 1
+        return productList
+      }else{
+        const newProduct = {...product,
+          count: 1
+        }
+        return newProduct
+      }
+    })
+    setListCart(newList)
+  }
+
+  const removeItemCart = (product) => {
+    const newList = listCart.map((item) => {
+      if (item.id != product.id) {
+        return item
+      }
+    })
+    setListCart(newList)
+  }
+
   return (
     <productContext.Provider value={{
       listProduct,
       currentItem,
       setCurrentItem,
-      editingItem,
-      setEditingItem,
+      editingProduct,
+      setEditingProduct,
       getCurrentItem,
       createItem,
       updateItem,
-      deleteItem
+      deleteItem,
+      setCartIsOpen,
+      setCreateProduct,
+      createProduct,
+      cartIsOpen,
+      addItemCart,
+      removeItemCart
     }}>
       {children}
     </productContext.Provider>

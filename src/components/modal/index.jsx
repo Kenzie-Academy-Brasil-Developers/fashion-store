@@ -1,12 +1,15 @@
+import { useContext } from "react";
 import { RegisterProductForm, UpdateProductForm } from "../forms";
 import { ProductCardModal } from "../productList/productCard";
 import { MdClose } from "react-icons/md";
+import { loginContext } from "../../providers/loginProvider";
 
 export const CartModal = () => {
+  const {setCartIsOpen} = useContext(loginContext)
   return (
     <div className="overlay">
       <div className="modalContainer" role="dialog">
-        <MdClose size={20} />
+        <MdClose onClick={() => setCartIsOpen(false)} size={20} />
         <h2>Carrinho</h2>
         <ul>
           <ProductCardModal />
@@ -18,10 +21,11 @@ export const CartModal = () => {
 };
 
 export const RegisterProductModal = () => {
+  const {setCreateProduct} = useContext(loginContext)
   return (
     <div className="overlay">
       <div className="modalContainer">
-        <MdClose size={20} />
+        <MdClose onClick={() => setCreateProduct(null)} size={20} />
         <h2>Novo Produto</h2>
         <RegisterProductForm />
       </div>
@@ -30,10 +34,11 @@ export const RegisterProductModal = () => {
 };
 
 export const UpdateProductModal = () => {
+  const {setEditingProduct} = useContext(loginContext)
   return (
     <div className="overlay">
       <div className="modalContainer">
-        <MdClose size={20} />
+        <MdClose onClick={() => setEditingProduct(null)} size={20} />
         <h2>Editar Produto</h2>
         <UpdateProductForm />
       </div>
