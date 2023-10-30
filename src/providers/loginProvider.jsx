@@ -48,15 +48,13 @@ export const LoginProvider = ({ children }) => {
     }
   };
 
-  
-  
   return (
     <loginContext.Provider
       value={{
         getAutoLogin,
         login,
         logout,
-        createUser
+        createUser,
       }}
     >
       {children}

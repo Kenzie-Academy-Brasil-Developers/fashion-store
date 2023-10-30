@@ -2,7 +2,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import logoImg from "../../assets/FAshionSTORE.png";
 
 export const AppHeader = () => {
-  const pathname = window.location.pathname
+  const pathname = window.location.pathname;
   return (
     <header>
       <div>
