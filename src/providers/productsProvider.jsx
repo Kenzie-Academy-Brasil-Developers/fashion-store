@@ -9,12 +9,13 @@ export const ProductProvider = ({ children }) => {
   const [editingProduct, setEditingProduct] = useState(null);
   const [createProduct, setCreateProduct] = useState(null);
   const [cartIsOpen, setCartIsOpen] = useState(false);
-  const [deleteItemModal, setDeleteItemModal] = useState(null); // adicionado por Bernardo
+  const [deleteItemModal, setDeleteItemModal] = useState(null);
   const [listCart, setListCart] = useState(
     localStorage.getItem("@FSCart")
       ? JSON.parse(localStorage.getItem("@FSCart"))
       : [[]]
   );
+  console.log("🚀 ~ file: productsProvider.jsx:18 ~ ProductProvider ~ listCart:", listCart)
 
   useEffect(() => {
     const getProducts = async () => {
@@ -142,6 +143,7 @@ export const ProductProvider = ({ children }) => {
         removeItemCart,
         deleteItemModal,
         setDeleteItemModal,
+        listCart,
       }}
     >
       {children}

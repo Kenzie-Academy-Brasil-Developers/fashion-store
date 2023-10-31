@@ -29,7 +29,7 @@ export const ProductCard = ({ product }) => {
   );
 };
 
-export const ProductCardModal = (product) => {
+export const ProductCardModal = ({product}) => {
   const { removeItemCart } = useContext(productContext);
 
   return (
