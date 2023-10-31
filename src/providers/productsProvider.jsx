@@ -9,6 +9,7 @@ export const ProductProvider = ({ children }) => {
   const [editingProduct, setEditingProduct] = useState(null);
   const [createProduct, setCreateProduct] = useState(null);
   const [cartIsOpen, setCartIsOpen] = useState(false);
+  const [deleteItemModal, setDeleteItemModal] = useState(null); // adicionado por Bernardo
   const [listCart, setListCart] = useState(
     localStorage.getItem("@FSCart")
       ? JSON.parse(localStorage.getItem("@FSCart"))
@@ -139,6 +140,8 @@ export const ProductProvider = ({ children }) => {
         cartIsOpen,
         addItemCart,
         removeItemCart,
+        deleteItemModal,
+        setDeleteItemModal,
       }}
     >
       {children}

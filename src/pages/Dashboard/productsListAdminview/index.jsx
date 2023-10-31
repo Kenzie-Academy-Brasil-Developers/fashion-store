@@ -1,10 +1,17 @@
 import { LiaPlusCircleSolid } from "react-icons/lia";
 import { ProductCardAdminView } from "../../../components";
 import { Link } from "react-router-dom";
-import { RegisterProductModal, UpdateProductModal } from "../../../components";
-import { ConfirmDeleteModal } from "../../../components/modal";
+import { RegisterProductModal, UpdateProductModal, ConfirmDeleteModal } from "../../../components";
+import { useContext } from "react";
+import { productContext } from "../../../providers/productsProvider";
 
 export const ProductsListAdminView = () => {
+  const {
+    deleteItemModal,
+    createProduct,
+    setCreateProduct,
+    editingProduct,
+  } = useContext(productContext);
   return (
     <>
       <nav>
@@ -20,7 +27,7 @@ export const ProductsListAdminView = () => {
       <section>
         <div>
           <h1>Produtos</h1>
-          <button>
+          <button onClick={() => setCreateProduct(true)}>
             <LiaPlusCircleSolid size={20} /> Novo produto{" "}
           </button>
         </div>
@@ -28,9 +35,9 @@ export const ProductsListAdminView = () => {
           <ProductCardAdminView />
         </ul>
       </section>
-      <RegisterProductModal />
-      <UpdateProductModal />
-      <ConfirmDeleteModal/>
+      {createProduct && <RegisterProductModal />}
+      {editingProduct && <UpdateProductModal />}
+      {deleteItemModal && <ConfirmDeleteModal/>}
     </>
   );
 };

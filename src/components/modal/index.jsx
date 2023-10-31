@@ -3,6 +3,7 @@ import { RegisterProductForm, UpdateProductForm } from "../forms";
 import { ProductCardModal } from "../productList/productCard";
 import { MdClose } from "react-icons/md";
 import { loginContext } from "../../providers/loginProvider";
+import { productContext } from "../../providers/productsProvider";
 
 export const CartModal = () => {
   const { setCartIsOpen } = useContext(loginContext);
@@ -47,17 +48,22 @@ export const UpdateProductModal = () => {
 };
 
 export const ConfirmDeleteModal = () => {
+  const { deleteItem, deleteItemModal, setDeleteItemModal } =
+    useContext(productContext);
   return (
     <div className="overlay">
       <div className="modalContainer" role="dialog">
         <div>
           <h2>Confirmar exclusão</h2>
-          <MdClose size={20} />
+          <MdClose size={20} onClick={() => setDeleteItemModal(null)} />
         </div>
         <h2>Tem certeza que deseja fazer isso?</h2>
         <p>Esse processo não pode ser desfeito</p>
       </div>
-      <button>Confirmar exclusão</button>
+      <button onClick={() => setDeleteItemModal(null)}>Cancelar</button>
+      <button onClick={() => deleteItem(deleteItemModal.id)}>
+        Confirmar exclusão
+      </button>
     </div>
   );
 };
