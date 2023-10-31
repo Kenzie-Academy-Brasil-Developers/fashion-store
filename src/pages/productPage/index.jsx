@@ -1,9 +1,13 @@
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { ProductsList, CartModal } from "../../components";
+import { useContext } from "react";
+import { productContext } from "../../providers/productsProvider";
 
 export const ProductPage = () => {
+  const { cartIsOpen } = useContext(productContext);
   return (
     <>
+      {cartIsOpen && <CartModal />}
       <h1>{`Home > ${"ProductName"}`}</h1>
       <section>
         <img src="" alt="Product image" />
@@ -25,7 +29,6 @@ export const ProductPage = () => {
         <h2>Veja também</h2>
         <ul>{/* lista de produtos */}</ul>
       </section>
-      <CartModal />
     </>
   );
 };
