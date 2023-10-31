@@ -6,7 +6,7 @@ import {
   MdOutlineDeleteOutline,
 } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { productContext } from "../../../providers/productsPrivider";
+import { productContext } from "../../../providers/productsProvider";
 
 export const ProductCard = ({ product }) => {
   const { addItemCart } = useContext(productContext);

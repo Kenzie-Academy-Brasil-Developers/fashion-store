@@ -9,7 +9,7 @@ import {
   registerAdminSchema,
 } from "./index.schema.js";
 import { useContext } from "react";
-import { productContext } from "../../providers/productsPrivider.jsx";
+import { productContext } from "../../providers/productsProvider.jsx";
 
 export const LoginForm = () => {
   const {

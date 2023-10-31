@@ -1,7 +1,7 @@
 import { MdOutlineShoppingCart } from "react-icons/md";
 import logoImg from "../../assets/FAshionSTORE.png";
 import { useContext } from "react";
-import { productContext } from "../../providers/productsPrivider";
+import { productContext } from "../../providers/productsProvider";
 
 export const AppHeader = () => {
   const { setCartIsOpen } = useContext(productContext);

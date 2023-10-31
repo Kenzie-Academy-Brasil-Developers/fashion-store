@@ -25,7 +25,7 @@ export const ProductPage = () => {
         <h2>Veja também</h2>
         <ul>{/* lista de produtos */}</ul>
       </section>
-      <CartModal/>
+      <CartModal />
     </>
   );
 };

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { RegisterProductModal, UpdateProductModal } from "../../../components";
 import { ConfirmDeleteModal } from "../../../components/modal";
 
-
 export const ProductsListAdminView = () => {
   return (
     <>
