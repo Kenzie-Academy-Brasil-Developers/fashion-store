@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../services/api";
+import { ZodNumber } from "zod";
 
 export const productContext = createContext({});
 
@@ -10,12 +11,12 @@ export const ProductProvider = ({ children }) => {
   const [createProduct, setCreateProduct] = useState(null);
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [deleteItemModal, setDeleteItemModal] = useState(null);
+
   const [listCart, setListCart] = useState(
     localStorage.getItem("@FSCart")
       ? JSON.parse(localStorage.getItem("@FSCart"))
       : []
   );
-  console.log("🚀 ~ file: productsProvider.jsx:18 ~ ProductProvider ~ listCart:", listCart)
 
   useEffect(() => {
     const getProducts = async () => {
@@ -28,6 +29,11 @@ export const ProductProvider = ({ children }) => {
     };
     getProducts();
   }, []);
+
+    const totalCartValue = listCart?.reduce(
+      (acc, cur) => acc + cur.price * cur.count,
+      0
+    );
 
   const getCurrentItem = async (id) => {
     try {
@@ -98,29 +104,30 @@ export const ProductProvider = ({ children }) => {
   };
 
   const addItemCart = (product) => {
-    const verifyItem = listCart.find((cartItem) => cartItem.id === product.id)
-    const list = listCart
+    const verifyItem = listCart.find((cartItem) => cartItem.id === product.id);
+    const list = listCart;
     if (verifyItem) {
-      verifyItem.count += 1
+      verifyItem.count += 1;
     } else {
-      list.push({ ...product, count: 1 })
+      list.push({ ...product, count: 1 });
     }
-    setListCart(list)
-    localStorage.setItem("@FSCart", JSON.stringify(listCart))
-};
+    setListCart(list);
+    localStorage.setItem("@FSCart", JSON.stringify(listCart));
+  };
 
-const removeItemCart = (product) => {
-  const newList = listCart.map((item) => {
-    if (item.id != product.id) {
-      return item;
-    }
-  });
-  setListCart(newList);
-};
+  const removeItemCart = (product) => {
+    const newList = listCart.map((item) => {
+      if (item.id != product.id) {
+        return item;
+      }
+    });
+    setListCart(newList);
+  };
 
   return (
     <productContext.Provider
       value={{
+        listCart,
         listProduct,
         currentItem,
         setCurrentItem,
@@ -138,6 +145,7 @@ const removeItemCart = (product) => {
         removeItemCart,
         deleteItemModal,
         setDeleteItemModal,
+        totalCartValue
       }}
     >
       {children}

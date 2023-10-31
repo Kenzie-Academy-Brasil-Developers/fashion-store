@@ -5,7 +5,9 @@ import { MdClose } from "react-icons/md";
 import { productContext } from "../../providers/productsProvider";
 
 export const CartModal = () => {
-  const { setCartIsOpen, listCart } = useContext(productContext);
+  const { setCartIsOpen, listCart, totalCartValue } =
+    useContext(productContext);
+  console.log("🚀 ~ file: index.jsx:9 ~ CartModal ~ listCart:", listCart);
   return (
     <div className="overlay">
       <div className="modalContainer" role="dialog">
@@ -17,7 +19,10 @@ export const CartModal = () => {
           ))}
         </ul>
       </div>
-      <p>Total R$</p>
+      <p>{`Total: ${totalCartValue.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      })}`}</p>
     </div>
   );
 };
