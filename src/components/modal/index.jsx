@@ -5,14 +5,16 @@ import { MdClose } from "react-icons/md";
 import { productContext } from "../../providers/productsProvider";
 
 export const CartModal = () => {
-  const { setCartIsOpen } = useContext(productContext);
+  const { setCartIsOpen, listCart } = useContext(productContext);
   return (
     <div className="overlay">
       <div className="modalContainer" role="dialog">
         <MdClose onClick={() => setCartIsOpen(null)} size={20} />
         <h2>Carrinho</h2>
         <ul>
-          <ProductCardModal />
+          {listCart?.map((listItem) => (
+            <ProductCardModal product={listItem} key={listItem.id} />
+          ))}
         </ul>
       </div>
       <p>Total R$</p>
