@@ -1,17 +1,17 @@
 import { LiaPlusCircleSolid } from "react-icons/lia";
 import { ProductCardAdminView } from "../../../components";
 import { Link } from "react-router-dom";
-import { RegisterProductModal, UpdateProductModal, ConfirmDeleteModal } from "../../../components";
+import {
+  RegisterProductModal,
+  UpdateProductModal,
+  ConfirmDeleteModal,
+} from "../../../components";
 import { useContext } from "react";
 import { productContext } from "../../../providers/productsProvider";
 
 export const ProductsListAdminView = () => {
-  const {
-    deleteItemModal,
-    createProduct,
-    setCreateProduct,
-    editingProduct,
-  } = useContext(productContext);
+  const { deleteItemModal, createProduct, setCreateProduct, editingProduct } =
+    useContext(productContext);
   return (
     <>
       <nav>
@@ -37,7 +37,7 @@ export const ProductsListAdminView = () => {
       </section>
       {createProduct && <RegisterProductModal />}
       {editingProduct && <UpdateProductModal />}
-      {deleteItemModal && <ConfirmDeleteModal/>}
+      {deleteItemModal && <ConfirmDeleteModal />}
     </>
   );
 };

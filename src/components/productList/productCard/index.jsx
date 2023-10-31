@@ -48,8 +48,7 @@ export const ProductCardModal = (product) => {
 };
 
 export const ProductCardAdminView = (product) => {
-  const { setEditingProduct, setDeleteItemModal } =
-    useContext(productContext);
+  const { setEditingProduct, setDeleteItemModal } = useContext(productContext);
   return (
     <li>
       <img src={product.image} alt={product.name} />
@@ -58,20 +57,16 @@ export const ProductCardAdminView = (product) => {
         <p>{product.price}</p>
       </div>
       <div>
-        <button>
           <MdOutlineModeEditOutline
             onClick={() => {
               setEditingProduct(product);
             }}
             size={20}
           />
-        </button>
-        <button>
           <MdOutlineDeleteOutline
             onClick={() => setDeleteItemModal(product)}
             size={20}
           />
-        </button>
       </div>
     </li>
   );

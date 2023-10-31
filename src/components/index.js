@@ -16,7 +16,7 @@ import {
   CartModal,
   RegisterProductModal,
   UpdateProductModal,
-  ConfirmDeleteModal
+  ConfirmDeleteModal,
 } from "./modal/index.jsx";
 
 export {

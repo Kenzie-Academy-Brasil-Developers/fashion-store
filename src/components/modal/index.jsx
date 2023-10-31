@@ -22,7 +22,7 @@ export const CartModal = () => {
 };
 
 export const RegisterProductModal = () => {
-  const { setCreateProduct } = useContext(loginContext);
+  const { setCreateProduct } = useContext(productContext);
   return (
     <div className="overlay">
       <div className="modalContainer" role="dialog">
@@ -35,7 +35,7 @@ export const RegisterProductModal = () => {
 };
 
 export const UpdateProductModal = () => {
-  const { setEditingProduct } = useContext(loginContext);
+  const { setEditingProduct } = useContext(productContext);
   return (
     <div className="overlay">
       <div className="modalContainer" role="dialog">
