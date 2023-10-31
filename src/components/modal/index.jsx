@@ -24,7 +24,7 @@ export const RegisterProductModal = () => {
   const { setCreateProduct } = useContext(loginContext);
   return (
     <div className="overlay">
-      <div className="modalContainer">
+      <div className="modalContainer" role="dialog">
         <MdClose onClick={() => setCreateProduct(null)} size={20} />
         <h2>Novo Produto</h2>
         <RegisterProductForm />
@@ -37,11 +37,27 @@ export const UpdateProductModal = () => {
   const { setEditingProduct } = useContext(loginContext);
   return (
     <div className="overlay">
-      <div className="modalContainer">
+      <div className="modalContainer" role="dialog">
         <MdClose onClick={() => setEditingProduct(null)} size={20} />
         <h2>Editar Produto</h2>
         <UpdateProductForm />
       </div>
+    </div>
+  );
+};
+
+export const ConfirmDeleteModal = () => {
+  return (
+    <div className="overlay">
+      <div className="modalContainer" role="dialog">
+        <div>
+          <h2>Confirmar exclusão</h2>
+          <MdClose size={20} />
+        </div>
+        <h2>Tem certeza que deseja fazer isso?</h2>
+        <p>Esse processo não pode ser desfeito</p>
+      </div>
+      <button>Confirmar exclusão</button>
     </div>
   );
 };

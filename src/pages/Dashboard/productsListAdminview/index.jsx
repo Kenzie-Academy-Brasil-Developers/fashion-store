@@ -2,6 +2,7 @@ import { LiaPlusCircleSolid } from "react-icons/lia";
 import { ProductCardAdminView } from "../../../components";
 import { Link } from "react-router-dom";
 import { RegisterProductModal, UpdateProductModal } from "../../../components";
+import { ConfirmDeleteModal } from "../../../components/modal";
 
 
 export const ProductsListAdminView = () => {
@@ -30,6 +31,7 @@ export const ProductsListAdminView = () => {
       </section>
       <RegisterProductModal />
       <UpdateProductModal />
+      <ConfirmDeleteModal/>
     </>
   );
 };

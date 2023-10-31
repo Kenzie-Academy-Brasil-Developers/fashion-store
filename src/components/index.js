@@ -16,6 +16,7 @@ import {
   CartModal,
   RegisterProductModal,
   UpdateProductModal,
+  ConfirmDeleteModal
 } from "./modal/index.jsx";
 
 export {
@@ -32,4 +33,5 @@ export {
   RegisterProductModal,
   UpdateProductModal,
   ProductCardAdminView,
+  ConfirmDeleteModal,
 };
