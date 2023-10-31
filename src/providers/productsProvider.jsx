@@ -1,6 +1,5 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../services/api";
-import { ZodNumber } from "zod";
 
 export const productContext = createContext({});
 
@@ -30,11 +29,20 @@ export const ProductProvider = ({ children }) => {
     getProducts();
   }, []);
 
-    const totalCartValue = listCart?.reduce(
-      (acc, cur) => acc + cur.price * cur.count,
+  const totalCartValue = listCart?.reduce(
+    (acc, cur) => acc + cur.price * cur.count,
+    0
+  );
+
+  const [cartCounter, setCartCounter] = useState(0);
+  useEffect(() => {
+    const cartItensCount = listCart?.reduce(
+      (acc, cur ) => acc + cur.count * 1,
       0
     );
-
+    setCartCounter(cartItensCount);
+  }, [listCart]);
+  
   const getCurrentItem = async (id) => {
     try {
       const { data } = await api.get(`/products/${id}`);
@@ -145,7 +153,8 @@ export const ProductProvider = ({ children }) => {
         removeItemCart,
         deleteItemModal,
         setDeleteItemModal,
-        totalCartValue
+        totalCartValue,
+        cartCounter,
       }}
     >
       {children}

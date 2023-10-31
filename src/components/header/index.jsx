@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { productContext } from "../../providers/productsProvider";
 
 export const AppHeader = () => {
-  const { setCartIsOpen } = useContext(productContext);
+  const { setCartIsOpen, cartCounter } = useContext(productContext);
   const pathname = window.location.pathname;
 
   return (
@@ -16,6 +16,7 @@ export const AppHeader = () => {
             <MdOutlineShoppingCart size={25} />
           </button>
         ) : null}
+        { cartCounter != 0 && <span>{`${cartCounter}`}</span>}
       </div>
     </header>
   );
