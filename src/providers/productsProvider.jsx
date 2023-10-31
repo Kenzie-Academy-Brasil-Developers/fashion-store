@@ -13,7 +13,7 @@ export const ProductProvider = ({ children }) => {
   const [listCart, setListCart] = useState(
     localStorage.getItem("@FSCart")
       ? JSON.parse(localStorage.getItem("@FSCart"))
-      : [[]]
+      : []
   );
 
   useEffect(() => {
@@ -27,10 +27,6 @@ export const ProductProvider = ({ children }) => {
     };
     getProducts();
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("@FSCart", JSON.stringify(listCart));
-  }, [listCart]);
 
   const getCurrentItem = async (id) => {
     try {
@@ -101,50 +97,49 @@ export const ProductProvider = ({ children }) => {
   };
 
   const addItemCart = (product) => {
-    const newList = listCart.map((productList) => {
-      if (product.id === productList.id) {
-        productList.count += 1;
-        return productList;
-      } else {
-        const newProduct = { ...product, count: 1 };
-        return newProduct;
-      }
-    });
-    setListCart(newList);
-  };
+    const verifyItem = listCart.find((cartItem) => cartItem.id === product.id)
+    const list = listCart
+    if (verifyItem) {
+      verifyItem.count += 1
+    } else {
+      list.push({ ...product, count: 1 })
+    }
+    setListCart(list)
+    localStorage.setItem("@FSCart", JSON.stringify(listCart))
+};
 
-  const removeItemCart = (product) => {
-    const newList = listCart.map((item) => {
-      if (item.id != product.id) {
-        return item;
-      }
-    });
-    setListCart(newList);
-  };
+const removeItemCart = (product) => {
+  const newList = listCart.map((item) => {
+    if (item.id != product.id) {
+      return item;
+    }
+  });
+  setListCart(newList);
+};
 
-  return (
-    <productContext.Provider
-      value={{
-        listProduct,
-        currentItem,
-        setCurrentItem,
-        editingProduct,
-        setEditingProduct,
-        getCurrentItem,
-        createItem,
-        updateItem,
-        deleteItem,
-        setCartIsOpen,
-        setCreateProduct,
-        createProduct,
-        cartIsOpen,
-        addItemCart,
-        removeItemCart,
-        deleteItemModal,
-        setDeleteItemModal,
-      }}
-    >
-      {children}
-    </productContext.Provider>
-  );
+return (
+  <productContext.Provider
+    value={{
+      listProduct,
+      currentItem,
+      setCurrentItem,
+      editingProduct,
+      setEditingProduct,
+      getCurrentItem,
+      createItem,
+      updateItem,
+      deleteItem,
+      setCartIsOpen,
+      setCreateProduct,
+      createProduct,
+      cartIsOpen,
+      addItemCart,
+      removeItemCart,
+      deleteItemModal,
+      setDeleteItemModal,
+    }}
+  >
+    {children}
+  </productContext.Provider>
+);
 };
