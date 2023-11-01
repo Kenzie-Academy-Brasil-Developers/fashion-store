@@ -1,13 +1,15 @@
-import { DefaultTemplate } from "./components/index.js"
+import { DefaultTemplate } from "./components/index.js";
+import { MainRoutes } from "./routes/index.jsx";
+import "./styles/index.scss";
 
-function App() {
-
+const App = () => {
   return (
-    <>  
+    <>
       <DefaultTemplate>
+        <MainRoutes />
       </DefaultTemplate>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

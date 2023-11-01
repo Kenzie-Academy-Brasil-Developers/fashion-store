@@ -1,7 +1,7 @@
-import { AppHeader } from "../header/index.jsx"
-import { AppFooter } from "../footer/index.jsx"
+import { AppHeader } from "../header/index.jsx";
+import { AppFooter } from "../footer/index.jsx";
 
-const DefaultTemplate = ({ children }) => {
+export const DefaultTemplate = ({ children }) => {
   return (
     <>
       <AppHeader />
@@ -10,5 +10,3 @@ const DefaultTemplate = ({ children }) => {
     </>
   );
 };
-
-export { DefaultTemplate } 

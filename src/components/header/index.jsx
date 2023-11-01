@@ -1,14 +1,23 @@
 import { MdOutlineShoppingCart } from "react-icons/md";
+import logoImg from "../../assets/FAshionSTORE.png";
+import { useContext } from "react";
+import { productContext } from "../../providers/productsProvider";
 
-const AppHeader = () => {
+export const AppHeader = () => {
+  const { setCartIsOpen, cartCounter } = useContext(productContext);
+  const pathname = window.location.pathname;
+
   return (
     <header>
       <div>
-        <img src="" alt="fashion logo" />
-        <MdOutlineShoppingCart size={20} />
+        <img src={logoImg} alt="fashion logo" />
+        {pathname === "/" || pathname.includes("product/") ? (
+          <button onClick={() => setCartIsOpen(true)}>
+            <MdOutlineShoppingCart size={25} />
+          </button>
+        ) : null}
+        { cartCounter != 0 && <span>{`${cartCounter}`}</span>}
       </div>
     </header>
   );
 };
-
-export { AppHeader }
