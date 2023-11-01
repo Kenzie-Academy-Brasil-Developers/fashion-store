@@ -10,6 +10,7 @@ import {
 } from "./index.schema.js";
 import { useContext } from "react";
 import { productContext } from "../../providers/productsProvider.jsx";
+import { Link } from "react-router-dom";
 
 export const LoginForm = () => {
   const {
@@ -41,7 +42,9 @@ export const LoginForm = () => {
         <button type="submit" className="btn access">
           ACESSAR
         </button>
-        <button className="btn register">CADASTRE-SE</button>
+        <Link to={"/register"}>
+          <h2 className="btn register">CADASTRE-SE</h2>
+        </Link>
       </div>
     </form>
   );
@@ -60,9 +63,11 @@ export const RegisterAdminForm = () => {
 
   return (
     <div>
-      <button>
-        <MdArrowBack size={20} /> Voltar
-      </button>
+      <Link to={"/login"}>
+        <button>
+          <MdArrowBack size={20} /> Voltar
+        </button>
+      </Link>
       <h2 className="title-2">CADASTRAR-SE</h2>
       <p className="paragraph">Seja bem vindo, administrador!</p>
       <form onSubmit={handleSubmit(submit)}>
@@ -144,12 +149,17 @@ export const RegisterProductForm = () => {
 };
 
 export const UpdateProductForm = () => {
-  const { updateItem } = useContext(productContext);
+  const { updateItem, editingProduct } = useContext(productContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: zodResolver(productSchema) });
+  } = useForm({ resolver: zodResolver(productSchema), values: {
+    name: editingProduct.name,
+    price: editingProduct.price,
+    description: editingProduct.description,
+    image: editingProduct.image
+  } });
 
   const submit = (payload) => {
     updateItem(payload);
