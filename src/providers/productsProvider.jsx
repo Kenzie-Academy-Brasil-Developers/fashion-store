@@ -10,6 +10,7 @@ export const ProductProvider = ({ children }) => {
   const [createProduct, setCreateProduct] = useState(null);
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [deleteItemModal, setDeleteItemModal] = useState(null);
+  const [cartTotalValue, setCartTotalValue] = useState(null);
 
   const [listCart, setListCart] = useState(
     localStorage.getItem("@FSCart")
@@ -29,13 +30,20 @@ export const ProductProvider = ({ children }) => {
     getProducts();
   }, []);
 
-  const totalCartValue = listCart?.reduce(
-    (acc, cur) => acc + cur.price * cur.count,
-    0
-  );
+  useEffect(() => {
+    localStorage.setItem("@FSCart", JSON.stringify(listCart));
+  }, [listCart]);
+
+  useEffect(() => {
+    const totalCartValue = listCart?.reduce(
+      (acc, cur) => acc + cur.price * cur.count,
+      0
+    );
+    setCartTotalValue(totalCartValue);
+  }, [listCart]);
 
   const [cartCounter, setCartCounter] = useState(0);
-  
+
   useEffect(() => {
     const cartItensCount = listCart?.reduce((acc, cur) => acc + cur.count, 0);
     setCartCounter(cartItensCount);
@@ -122,8 +130,11 @@ export const ProductProvider = ({ children }) => {
   };
 
   const removeItemCart = (product) => {
-    const newList = listCart.map((item) => {
-      if (item.id != product.id) {
+    const newList = listCart.filter((item) => {
+      if (item.id !== product.id) {
+        return item;
+      } else if (item.id === product.id && item.count > 1) {
+        item.count -= 1;
         return item;
       }
     });
@@ -151,7 +162,7 @@ export const ProductProvider = ({ children }) => {
         removeItemCart,
         deleteItemModal,
         setDeleteItemModal,
-        totalCartValue,
+        cartTotalValue,
         cartCounter,
       }}
     >
