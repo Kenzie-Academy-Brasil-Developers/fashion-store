@@ -17,16 +17,20 @@ export const ProductsListAdminView = () => {
       <nav>
         <ul>
           <Link to={"/dashboard"}>
-            <li>Início</li>
+            <li className="navigation-title sm">INÍCIO</li>
           </Link>
           <Link to={"/dashboard/products"}>
-            <li>Produtos</li>
+            <li className="navigation-title sm">PRODUTOS</li>
           </Link>
         </ul>
       </nav>
       <section>
         <div>
-          <h1>Produtos</h1>
+          <div>
+            <h1 className="title-2">PRODUTOS</h1>
+            <p className="paragraph">Gerencie os produtos do catálogo</p>
+          </div>
+
           <button
             onClick={() => setCreateProduct(true)}
             className="btn newProduct"

@@ -32,7 +32,7 @@ export const RegisterProductModal = () => {
     <div className="overlay">
       <div className="modalContainer" role="dialog">
         <MdClose onClick={() => setCreateProduct(null)} size={20} />
-        <h2>Novo Produto</h2>
+        <h2 className="modal-title">NOVO PRODUTO</h2>
         <RegisterProductForm />
       </div>
     </div>
@@ -45,7 +45,7 @@ export const UpdateProductModal = () => {
     <div className="overlay">
       <div className="modalContainer" role="dialog">
         <MdClose onClick={() => setEditingProduct(null)} size={20} />
-        <h2>Editar Produto</h2>
+        <h2 className="modal-title">EDITAR PRODUTO</h2>
         <UpdateProductForm />
       </div>
     </div>

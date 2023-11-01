@@ -34,18 +34,18 @@ export const ProductPage = () => {
   return (
     <>
       {cartIsOpen && <CartModal />}
-      <h1>{`Home > ${currProduct.name}`}</h1>
+      <h1 className="navigation-title sm">{`HOME > ${currProduct.name}`}</h1>
       <section>
         <img src={currProduct.image} alt="Product image" />
         <div>
-          <h2>{currProduct.name}</h2>
-          <p>
+          <h2 className="productCard-title">{currProduct.name}</h2>
+          <p className="price">
             {currProduct.price?.toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })}
           </p>
-          <p>{currProduct.description}</p>
+          <p className="paragraph">{currProduct.description}</p>
           <button className="btn addToCart">
             <MdOutlineAddShoppingCart size={20} />
             ADICIONAR AO CARRINHO
@@ -53,7 +53,7 @@ export const ProductPage = () => {
         </div>
       </section>
       <section>
-        <h2>Veja também</h2>
+        <h2 className="title-2">VEJA TAMBÉM</h2>
         <ul>
           {hightLights?.map((product) => (
             <ProductCard product={product} key={product.id} />

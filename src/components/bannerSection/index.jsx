@@ -5,7 +5,7 @@ const BannerSection = () => {
     <section>
       <img src={bannerImg} alt="banner image" />
       <div>
-        <h1>Kenzie Fashion Store</h1>
+        <h1 className="title-1">KENZIE FASHION STORE</h1>
         <button className="btn checkOut">CONFIRA AS OFERTAS</button>
       </div>
     </section>
