@@ -6,12 +6,32 @@ import {
   UpdateProductModal,
   ConfirmDeleteModal,
 } from "../../../components";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { productContext } from "../../../providers/productsProvider";
+import { api } from "../../../services/api";
 
 export const ProductsListAdminView = () => {
-  const { deleteItemModal, createProduct, setCreateProduct, editingProduct } =
-    useContext(productContext);
+  const {
+    deleteItemModal,
+    createProduct,
+    setCreateProduct,
+    editingProduct,
+    listProduct,
+    setListProduct,
+  } = useContext(productContext);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const { data } = await api.get("/products");
+        setListProduct(data);
+      } catch (error) {
+        console.log(error)
+      }
+    };
+    getProducts();
+  }, []);
+
   return (
     <>
       <nav>
@@ -35,7 +55,9 @@ export const ProductsListAdminView = () => {
           </button>
         </div>
         <ul>
-          <ProductCardAdminView />
+          {listProduct?.map((product) => {
+            return <ProductCardAdminView product={product} key={product.id} />;
+          })}
         </ul>
       </section>
       {createProduct && <RegisterProductModal />}

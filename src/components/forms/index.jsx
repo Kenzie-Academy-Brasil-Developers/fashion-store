@@ -147,12 +147,17 @@ export const RegisterProductForm = () => {
 };
 
 export const UpdateProductForm = () => {
-  const { updateItem } = useContext(productContext);
+  const { updateItem, editingProduct } = useContext(productContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: zodResolver(productSchema) });
+  } = useForm({ resolver: zodResolver(productSchema), values: {
+    name: editingProduct.name,
+    price: editingProduct.price,
+    description: editingProduct.description,
+    image: editingProduct.image
+  } });
 
   const submit = (payload) => {
     updateItem(payload);
