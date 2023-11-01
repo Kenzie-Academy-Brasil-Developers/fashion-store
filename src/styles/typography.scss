@@ -82,6 +82,10 @@
 
   font-weight: var(--weight-3);
   color: var(--opacity);
+
+  &.black {
+    color: var(--black);
+  }
 }
 
 .navigation-title {
