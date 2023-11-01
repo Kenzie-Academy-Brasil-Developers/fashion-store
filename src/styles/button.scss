@@ -1,0 +1,54 @@
+.btn {
+  height: 3.75rem;
+  display: inline-flex;
+  align-items: center;
+
+  font-family: var(--font-secondary);
+
+  background-color: var(--black);
+  color: var(--white);
+  font-weight: var(--weight-2);
+
+  font-size: var(--sm-price);
+  line-height: 1.3181rem;
+
+  &.access {
+    padding-inline: 1.5rem;
+  }
+
+  &.register {
+    background-color: var(--white);
+    color: var(--black);
+    border: 0.0625rem solid var(--black);
+
+    padding-inline: 2rem;
+  }
+
+  &.checkOut {
+    padding-inline: 2.5rem;
+  }
+
+  &.addToCart {
+    width: 18.75rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0 1rem;
+  }
+
+  &.registerForm {
+    padding-inline: 2.3rem;
+  }
+
+  &.newProduct,
+  &.editProduct {
+    height: 3.4375rem;
+    width: 14.0625rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0 1.5rem;
+  }
+}

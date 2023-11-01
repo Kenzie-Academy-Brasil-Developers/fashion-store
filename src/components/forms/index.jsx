@@ -37,8 +37,10 @@ export const LoginForm = () => {
         error={errors.password}
       />
       <div>
-        <button type="submit">Acessar</button>
-        <button>Cadastre-se</button>
+        <button type="submit" className="btn access">
+          ACESSAR
+        </button>
+        <button className="btn register">CADASTRE-SE</button>
       </div>
     </form>
   );
@@ -87,7 +89,7 @@ export const RegisterAdminForm = () => {
           {...register("passValidate")}
           error={errors.passValidate}
         />
-        <button>Cadastrar-se</button>
+        <button className="btn registerForm">CADASTRAR-SE</button>
       </form>
     </div>
   );
@@ -131,8 +133,9 @@ export const RegisterProductForm = () => {
           {...register("description")}
           error={errors.description}
         />
-        <button>
-          <LiaPlusCircleSolid size={20} /> Novo produto
+        <button className="btn newProduct">
+          <LiaPlusCircleSolid size={20} />
+          NOVO PRODUTO
         </button>
       </form>
     </div>
@@ -177,8 +180,9 @@ export const UpdateProductForm = () => {
           {...register("description")}
           error={errors.description}
         />
-        <button>
-          <MdOutlineModeEditOutline size={20} /> Salvar Alterações
+        <button className="btn editProduct">
+          <MdOutlineModeEditOutline size={20} />
+          EDITAR PRODUTO
         </button>
       </form>
     </div>

@@ -27,8 +27,11 @@ export const ProductsListAdminView = () => {
       <section>
         <div>
           <h1>Produtos</h1>
-          <button onClick={() => setCreateProduct(true)}>
-            <LiaPlusCircleSolid size={20} /> Novo produto{" "}
+          <button
+            onClick={() => setCreateProduct(true)}
+            className="btn newProduct"
+          >
+            <LiaPlusCircleSolid size={20} /> NOVO PRODUTO{" "}
           </button>
         </div>
         <ul>
