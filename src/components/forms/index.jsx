@@ -11,8 +11,10 @@ import {
 import { useContext } from "react";
 import { productContext } from "../../providers/productsProvider.jsx";
 import { loginContext } from "../../providers/loginProvider.jsx";
+import { Link } from "react-router-dom";
 
 export const LoginForm = () => {
+  const {login} =useContext(loginContext)
   const {
     register,
     handleSubmit,
@@ -20,7 +22,7 @@ export const LoginForm = () => {
   } = useForm({ resolver: zodResolver(loginSchema) });
 
   const submit = (payload) => {
-    console.log(payload);
+    login(payload)
   };
 
   return (
@@ -41,7 +43,9 @@ export const LoginForm = () => {
         <button type="submit" className="btn access">
           ACESSAR
         </button>
-        <button className="btn register">CADASTRE-SE</button>
+        <Link to={"/register"}>
+        <button type="button" className="btn register">CADASTRE-SE</button>
+        </Link>
       </div>
     </form>
   );
