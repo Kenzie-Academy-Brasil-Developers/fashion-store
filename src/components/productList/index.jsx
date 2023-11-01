@@ -6,7 +6,7 @@ export const ProductsList = () => {
   const { listProduct } = useContext(productContext);
   return (
     <section>
-      <h2>Produtos em Destaque</h2>
+      <h2 className="title-2">PRODUTOS EM DESTAQUE</h2>
       <ul>
         {listProduct?.map((product) => {
           return <ProductCard product={product} key={product.id} />;

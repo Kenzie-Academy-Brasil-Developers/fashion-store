@@ -13,8 +13,8 @@ export const ProductCard = ({ product }) => {
   return (
     <li>
       <img src={product.image} alt={product.name} />
-      <h2>{product.name}</h2>
-      <p>
+      <h2 className="productCard-title">{product.name}</h2>
+      <p className="price sm">
         {product.price.toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
@@ -25,10 +25,13 @@ export const ProductCard = ({ product }) => {
           onClick={() => {
             addItemCart(product);
           }}
+          className="btn cartIcon"
         >
           <MdOutlineAddShoppingCart size={20} />
         </button>
-        <Link to={`/product/${product.id}`}>Saiba Mais!</Link>
+        <Link to={`/product/${product.id}`} className="know-more">
+          SAIBA MAIS
+        </Link>
       </div>
     </li>
   );
@@ -42,7 +45,12 @@ export const ProductCardModal = ({ product }) => {
       <img src={product.image} alt={product.name} />
       <div>
         <h2>{product.name}</h2>
-        <p>{product.price.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</p>
+        <p>
+          {product.price.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </p>
       </div>
       {product.count > 1 && <small>{`x${product.count}`}</small>}
       <button onClick={() => removeItemCart(product)}>

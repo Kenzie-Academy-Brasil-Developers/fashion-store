@@ -25,6 +25,7 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(submit)}>
+      <h2 className="title-2">ENTRAR</h2>
       <StdInput
         type={"text"}
         placeholder={"Email"}
@@ -66,8 +67,8 @@ export const RegisterAdminForm = () => {
           <MdArrowBack size={20} /> Voltar
         </button>
       </Link>
-      <h2>Cadastrar-se</h2>
-      <p>Seja bem vindo, administrador!</p>
+      <h2 className="title-2">CADASTRAR-SE</h2>
+      <p className="paragraph">Seja bem vindo, administrador!</p>
       <form onSubmit={handleSubmit(submit)}>
         <StdInput
           type={"text"}
@@ -116,24 +117,24 @@ export const RegisterProductForm = () => {
       <form onSubmit={handleSubmit(submit)}>
         <StdInput
           type={"text"}
-          placeholder={"Nome"}
+          placeholder={"NOME"}
           {...register("name")}
           error={errors.name}
         />
         <StdInput
           type={"number"}
-          placeholder={"Preço R$"}
+          placeholder={"PREÇO (R$)"}
           {...register("price")}
           error={errors.price}
         />
         <StdInput
           type={"text"}
-          placeholder={"Imagem (url)"}
+          placeholder={"IMAGEM (URL)"}
           {...register("image")}
           error={errors.image}
         />
         <StdTextArea
-          placeholder={"Descriço resumida"}
+          placeholder={"DESCRIÇÃO RESUMIDA"}
           {...register("description")}
           error={errors.description}
         />
