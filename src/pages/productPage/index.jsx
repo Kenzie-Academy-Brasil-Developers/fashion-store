@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { api } from "../../services/api";
 
 export const ProductPage = () => {
-  const { cartIsOpen, addItemCart, listProduct } = useContext(productContext);
+  const { cartIsOpen, listProduct } = useContext(productContext);
   const [currProduct, setCurrProduct] = useState({});
   const [hightLights, setHighLights] = useState([]);
 
@@ -26,7 +26,7 @@ export const ProductPage = () => {
 
   useEffect(() => {
     const filteredList = listProduct?.filter(
-      (product) => product.id !== id && product
+      (product) => product.id !== Number(id)
     );
     setHighLights(filteredList);
   }, [id, listProduct]);
