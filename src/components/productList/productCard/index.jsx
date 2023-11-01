@@ -52,7 +52,7 @@ export const ProductCardModal = ({ product }) => {
   );
 };
 
-export const ProductCardAdminView = (product) => {
+export const ProductCardAdminView = ({product}) => {
   const { setEditingProduct, setDeleteItemModal } = useContext(productContext);
   return (
     <li>

@@ -7,6 +7,7 @@ export const ProductProvider = ({ children }) => {
   const [listProduct, setListProduct] = useState([]);
   const [currentItem, setCurrentItem] = useState({});
   const [editingProduct, setEditingProduct] = useState(null);
+  console.log("🚀 ~ file: productsProvider.jsx:10 ~ ProductProvider ~ editingProduct:", editingProduct)
   const [createProduct, setCreateProduct] = useState(null);
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [deleteItemModal, setDeleteItemModal] = useState(null);
@@ -164,6 +165,7 @@ export const ProductProvider = ({ children }) => {
         setDeleteItemModal,
         cartTotalValue,
         cartCounter,
+        setListProduct
       }}
     >
       {children}
