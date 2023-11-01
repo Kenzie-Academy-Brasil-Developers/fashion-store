@@ -10,6 +10,7 @@ import {
 } from "./index.schema.js";
 import { useContext } from "react";
 import { productContext } from "../../providers/productsProvider.jsx";
+import { loginContext } from "../../providers/loginProvider.jsx";
 
 export const LoginForm = () => {
   const {
@@ -47,6 +48,7 @@ export const LoginForm = () => {
 };
 
 export const RegisterAdminForm = () => {
+  const {createUser} = useContext(loginContext)
   const {
     register,
     handleSubmit,
@@ -54,7 +56,7 @@ export const RegisterAdminForm = () => {
   } = useForm({ resolver: zodResolver(registerAdminSchema) });
 
   const submit = (payload) => {
-    console.log(payload);
+    createUser(payload)
   };
 
   return (
