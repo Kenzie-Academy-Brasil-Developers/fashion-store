@@ -24,7 +24,7 @@ export const ProductCard = ({ product }) => {
         <button
           onClick={() => {
             addItemCart(product);
-          }}
+          }} className="btn cartIcon"
         >
           <MdOutlineAddShoppingCart size={20} />
         </button>
