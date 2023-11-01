@@ -2,11 +2,11 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { CartModal, ProductCard } from "../../components";
 import { useContext, useEffect, useState } from "react";
 import { productContext } from "../../providers/productsProvider";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { api } from "../../services/api";
 
 export const ProductPage = () => {
-  const { cartIsOpen, listProduct } = useContext(productContext);
+  const { cartIsOpen, listProduct, addItemCart } = useContext(productContext);
   const [currProduct, setCurrProduct] = useState({});
   const [hightLights, setHighLights] = useState([]);
 
@@ -34,7 +34,12 @@ export const ProductPage = () => {
   return (
     <>
       {cartIsOpen && <CartModal />}
-      <h1>{`Home > ${currProduct.name}`}</h1>
+      <div>
+        <Link to={"/"}>
+          <h1>{"Home >"}</h1>
+        </Link>
+        <span>{currProduct.name}</span>
+      </div>
       <section>
         <img src={currProduct.image} alt="Product image" />
         <div>
@@ -46,7 +51,10 @@ export const ProductPage = () => {
             })}
           </p>
           <p>{currProduct.description}</p>
-          <button className="btn addToCart">
+          <button
+            className="btn addToCart"
+            onClick={() => addItemCart(currProduct)}
+          >
             <MdOutlineAddShoppingCart size={20} />
             ADICIONAR AO CARRINHO
           </button>

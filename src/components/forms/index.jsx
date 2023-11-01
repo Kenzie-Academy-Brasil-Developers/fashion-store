@@ -10,6 +10,7 @@ import {
 } from "./index.schema.js";
 import { useContext } from "react";
 import { productContext } from "../../providers/productsProvider.jsx";
+import { Link } from "react-router-dom";
 
 export const LoginForm = () => {
   const {
@@ -40,7 +41,9 @@ export const LoginForm = () => {
         <button type="submit" className="btn access">
           ACESSAR
         </button>
-        <button className="btn register">CADASTRE-SE</button>
+        <Link to={"/register"}>
+          <h2 className="btn register">CADASTRE-SE</h2>
+        </Link>
       </div>
     </form>
   );
@@ -59,9 +62,11 @@ export const RegisterAdminForm = () => {
 
   return (
     <div>
-      <button>
-        <MdArrowBack size={20} /> Voltar
-      </button>
+      <Link to={"/login"}>
+        <button>
+          <MdArrowBack size={20} /> Voltar
+        </button>
+      </Link>
       <h2>Cadastrar-se</h2>
       <p>Seja bem vindo, administrador!</p>
       <form onSubmit={handleSubmit(submit)}>
