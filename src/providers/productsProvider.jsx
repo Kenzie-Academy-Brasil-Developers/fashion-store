@@ -16,7 +16,6 @@ export const ProductProvider = ({ children }) => {
       ? JSON.parse(localStorage.getItem("@FSCart"))
       : []
   );
-  console.log("🚀 ~ file: productsProvider.jsx:19 ~ ProductProvider ~ listCart:", listCart)
 
   useEffect(() => {
     const getProducts = async () => {
@@ -112,7 +111,7 @@ export const ProductProvider = ({ children }) => {
 
   const addItemCart = (product) => {
     const verifyItem = listCart.find((cartItem) => cartItem.id === product.id);
-    const list = listCart;
+    const list = [...listCart];
     if (verifyItem) {
       verifyItem.count += 1;
     } else {
