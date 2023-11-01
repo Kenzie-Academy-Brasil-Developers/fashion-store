@@ -16,6 +16,7 @@ export const ProductProvider = ({ children }) => {
       ? JSON.parse(localStorage.getItem("@FSCart"))
       : []
   );
+  console.log("🚀 ~ file: productsProvider.jsx:19 ~ ProductProvider ~ listCart:", listCart)
 
   useEffect(() => {
     const getProducts = async () => {
@@ -35,14 +36,12 @@ export const ProductProvider = ({ children }) => {
   );
 
   const [cartCounter, setCartCounter] = useState(0);
+  
   useEffect(() => {
-    const cartItensCount = listCart?.reduce(
-      (acc, cur ) => acc + cur.count * 1,
-      0
-    );
+    const cartItensCount = listCart?.reduce((acc, cur) => acc + cur.count, 0);
     setCartCounter(cartItensCount);
   }, [listCart]);
-  
+
   const getCurrentItem = async (id) => {
     try {
       const { data } = await api.get(`/products/${id}`);
