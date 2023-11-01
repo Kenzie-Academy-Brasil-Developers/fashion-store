@@ -5,7 +5,7 @@ import { MdClose } from "react-icons/md";
 import { productContext } from "../../providers/productsProvider";
 
 export const CartModal = () => {
-  const { setCartIsOpen, listCart, totalCartValue } =
+  const { setCartIsOpen, listCart, cartTotalValue } =
     useContext(productContext);
   return (
     <div className="overlay">
@@ -14,11 +14,11 @@ export const CartModal = () => {
         <h2>Carrinho</h2>
         <ul>
           {listCart?.map((listItem) => (
-            <ProductCardModal product={listItem} key={listItem.id} />
+            <ProductCardModal product={listItem} key={crypto.randomUUID()} />
           ))}
         </ul>
       </div>
-      <p>{`Total: ${totalCartValue.toLocaleString("pt-BR", {
+      <p>{`Total: ${cartTotalValue.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL",
       })}`}</p>

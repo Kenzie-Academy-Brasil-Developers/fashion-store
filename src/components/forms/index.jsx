@@ -10,8 +10,6 @@ import {
 } from "./index.schema.js";
 import { useContext } from "react";
 import { productContext } from "../../providers/productsProvider.jsx";
-import { loginContext } from "../../providers/loginProvider.jsx";
-import { Link } from "react-router-dom";
 
 export const LoginForm = () => {
   const {login} =useContext(loginContext)
@@ -43,9 +41,7 @@ export const LoginForm = () => {
         <button type="submit" className="btn access">
           ACESSAR
         </button>
-        <Link to={"/register"}>
-        <button type="button" className="btn register">CADASTRE-SE</button>
-        </Link>
+        <button className="btn register">CADASTRE-SE</button>
       </div>
     </form>
   );
@@ -65,9 +61,11 @@ export const RegisterAdminForm = () => {
 
   return (
     <div>
-      <button>
-        <MdArrowBack size={20} /> Voltar
-      </button>
+      <Link to={"/login"}>
+        <button>
+          <MdArrowBack size={20} /> Voltar
+        </button>
+      </Link>
       <h2>Cadastrar-se</h2>
       <p>Seja bem vindo, administrador!</p>
       <form onSubmit={handleSubmit(submit)}>
