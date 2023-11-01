@@ -24,6 +24,7 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(submit)}>
+      <h2 className="title-2">ENTRAR</h2>
       <StdInput
         type={"text"}
         placeholder={"Email"}
