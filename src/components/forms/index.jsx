@@ -10,9 +10,9 @@ import {
 } from "./index.schema.js";
 import { useContext } from "react";
 import { productContext } from "../../providers/productsProvider.jsx";
-import { Link } from "react-router-dom";
 
 export const LoginForm = () => {
+  const {login} =useContext(loginContext)
   const {
     register,
     handleSubmit,
@@ -20,7 +20,7 @@ export const LoginForm = () => {
   } = useForm({ resolver: zodResolver(loginSchema) });
 
   const submit = (payload) => {
-    console.log(payload);
+    login(payload)
   };
 
   return (
@@ -41,15 +41,14 @@ export const LoginForm = () => {
         <button type="submit" className="btn access">
           ACESSAR
         </button>
-        <Link to={"/register"}>
-          <h2 className="btn register">CADASTRE-SE</h2>
-        </Link>
+        <button className="btn register">CADASTRE-SE</button>
       </div>
     </form>
   );
 };
 
 export const RegisterAdminForm = () => {
+  const {createUser} = useContext(loginContext)
   const {
     register,
     handleSubmit,
@@ -57,7 +56,7 @@ export const RegisterAdminForm = () => {
   } = useForm({ resolver: zodResolver(registerAdminSchema) });
 
   const submit = (payload) => {
-    console.log(payload);
+    createUser(payload)
   };
 
   return (
