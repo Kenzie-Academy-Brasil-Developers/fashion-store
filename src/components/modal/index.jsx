@@ -7,7 +7,6 @@ import { productContext } from "../../providers/productsProvider";
 export const CartModal = () => {
   const { setCartIsOpen, listCart, totalCartValue } =
     useContext(productContext);
-  console.log("🚀 ~ file: index.jsx:9 ~ CartModal ~ listCart:", listCart);
   return (
     <div className="overlay">
       <div className="modalContainer" role="dialog">

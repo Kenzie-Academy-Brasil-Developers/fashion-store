@@ -1,25 +1,51 @@
 import { MdOutlineAddShoppingCart } from "react-icons/md";
-import { ProductsList, CartModal } from "../../components";
-import { useContext } from "react";
+import { CartModal, ProductCard } from "../../components";
+import { useContext, useEffect, useState } from "react";
 import { productContext } from "../../providers/productsProvider";
+import { useParams } from "react-router-dom";
+import { api } from "../../services/api";
 
 export const ProductPage = () => {
-  const { cartIsOpen } = useContext(productContext);
+  const { cartIsOpen, addItemCart, listProduct } = useContext(productContext);
+  const [currProduct, setCurrProduct] = useState({});
+  const [hightLights, setHighLights] = useState([]);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    const loadProduct = async () => {
+      try {
+        const { data } = await api.get(`/products/${id}`);
+        setCurrProduct(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    loadProduct();
+  }, [id]);
+
+  useEffect(() => {
+    const filteredList = listProduct?.filter(
+      (product) => product.id !== id && product
+    );
+    setHighLights(filteredList);
+  }, [id, listProduct]);
+
   return (
     <>
       {cartIsOpen && <CartModal />}
-      <h1>{`Home > ${"ProductName"}`}</h1>
+      <h1>{`Home > ${currProduct.name}`}</h1>
       <section>
-        <img src="" alt="Product image" />
+        <img src={currProduct.image} alt="Product image" />
         <div>
-          <h2>ProductName</h2>
-          <p>ProductValue</p>
+          <h2>{currProduct.name}</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident,
-            saepe soluta quas laudantium nobis id qui dolorem labore libero vel
-            fugiat praesentium. Saepe omnis at modi reiciendis et autem
-            architecto?
+            {currProduct.price?.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
           </p>
+          <p>{currProduct.description}</p>
           <button>
             <MdOutlineAddShoppingCart size={20} /> Adicionar ao carrinho
           </button>
@@ -27,7 +53,11 @@ export const ProductPage = () => {
       </section>
       <section>
         <h2>Veja também</h2>
-        <ul>{/* lista de produtos */}</ul>
+        <ul>
+          {hightLights?.map((product) => (
+            <ProductCard product={product} key={product.id} />
+          ))}
+        </ul>
       </section>
     </>
   );

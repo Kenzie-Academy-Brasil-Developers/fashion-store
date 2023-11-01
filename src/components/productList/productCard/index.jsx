@@ -14,7 +14,12 @@ export const ProductCard = ({ product }) => {
     <li>
       <img src={product.image} alt={product.name} />
       <h2>{product.name}</h2>
-      <p>{product.price}</p>
+      <p>
+        {product.price.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        })}
+      </p>
       <div>
         <button
           onClick={() => {
@@ -29,7 +34,7 @@ export const ProductCard = ({ product }) => {
   );
 };
 
-export const ProductCardModal = ({product}) => {
+export const ProductCardModal = ({ product }) => {
   const { removeItemCart } = useContext(productContext);
 
   return (
@@ -37,7 +42,7 @@ export const ProductCardModal = ({product}) => {
       <img src={product.image} alt={product.name} />
       <div>
         <h2>{product.name}</h2>
-        <p>{product.price}</p>
+        <p>{product.price.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</p>
       </div>
       {product.count > 1 && <small>{`x${product.count}`}</small>}
       <button onClick={() => removeItemCart(product)}>
@@ -57,16 +62,16 @@ export const ProductCardAdminView = (product) => {
         <p>{product.price}</p>
       </div>
       <div>
-          <MdOutlineModeEditOutline
-            onClick={() => {
-              setEditingProduct(product);
-            }}
-            size={20}
-          />
-          <MdOutlineDeleteOutline
-            onClick={() => setDeleteItemModal(product)}
-            size={20}
-          />
+        <MdOutlineModeEditOutline
+          onClick={() => {
+            setEditingProduct(product);
+          }}
+          size={20}
+        />
+        <MdOutlineDeleteOutline
+          onClick={() => setDeleteItemModal(product)}
+          size={20}
+        />
       </div>
     </li>
   );
