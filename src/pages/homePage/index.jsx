@@ -6,7 +6,7 @@ export const HomePage = () => {
   const { cartIsOpen } = useContext(productContext);
 
   return (
-    <div>
+    <div className="container homePage">
       {cartIsOpen && <CartModal />}
       <BannerSection />
       <ProductsList />
