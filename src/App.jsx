@@ -7,7 +7,7 @@ const App = () => {
   return (
     <>
       <DefaultTemplate>
-        <ToastContainer/>
+        <ToastContainer />
         <MainRoutes />
       </DefaultTemplate>
     </>

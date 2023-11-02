@@ -4,7 +4,9 @@ export const AppFooter = () => {
   return (
     <>
       <footer className={styles.footer}>
-        <p className={styles.text}>Todos os direitos reservados - Kenzie Academy Brasil</p>
+        <p className={styles.text}>
+          Todos os direitos reservados - Kenzie Academy Brasil
+        </p>
       </footer>
     </>
   );

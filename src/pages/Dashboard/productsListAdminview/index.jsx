@@ -26,7 +26,7 @@ export const ProductsListAdminView = () => {
         const { data } = await api.get("/products");
         setListProduct(data);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     };
     getProducts();

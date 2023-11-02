@@ -8,6 +8,10 @@ import { api } from "../../services/api";
 export const ProductPage = () => {
   const { cartIsOpen, listProduct, addItemCart } = useContext(productContext);
   const [currProduct, setCurrProduct] = useState({});
+  console.log(
+    "🚀 ~ file: index.jsx:11 ~ ProductPage ~ currProduct:",
+    currProduct
+  );
   const [hightLights, setHighLights] = useState([]);
 
   const { id } = useParams();
@@ -45,7 +49,7 @@ export const ProductPage = () => {
         <div>
           <h2 className="productCard-title">{currProduct.name}</h2>
           <p className="price">
-            {currProduct.price?.toLocaleString("pt-BR", {
+            {Number(currProduct.price)?.toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })}

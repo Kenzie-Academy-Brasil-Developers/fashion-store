@@ -14,7 +14,7 @@ export const CartModal = () => {
         <h2>Carrinho</h2>
         <ul>
           {listCart?.map((listItem) => (
-            <ProductCardModal product={listItem} key={crypto.randomUUID()} />
+            <ProductCardModal product={listItem} key={listItem.id} />
           ))}
         </ul>
       </div>

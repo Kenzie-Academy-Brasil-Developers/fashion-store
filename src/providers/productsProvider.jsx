@@ -7,7 +7,6 @@ export const ProductProvider = ({ children }) => {
   const [listProduct, setListProduct] = useState([]);
   const [currentItem, setCurrentItem] = useState({});
   const [editingProduct, setEditingProduct] = useState(null);
-  console.log("🚀 ~ file: productsProvider.jsx:10 ~ ProductProvider ~ editingProduct:", editingProduct)
   const [createProduct, setCreateProduct] = useState(null);
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [deleteItemModal, setDeleteItemModal] = useState(null);
@@ -61,13 +60,14 @@ export const ProductProvider = ({ children }) => {
 
   const createItem = async (formData) => {
     try {
-      const token = localStorage.getItem("@FSToken").accessToken;
+      const token = JSON.parse(localStorage.getItem("@FSToken"));
       const { data } = await api.post("/products", formData, {
         headers: {
-          Authorization: `Barear ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
-      setListProduct(...listProduct, data);
+      setListProduct([...listProduct, data]);
+      setCreateProduct(null);
     } catch (error) {
       console.log(error);
     }
@@ -75,13 +75,13 @@ export const ProductProvider = ({ children }) => {
 
   const updateItem = async (formData) => {
     try {
-      const token = localStorage.getItem("@FSToken").accessToken;
+      const token = JSON.parse(localStorage.getItem("@FSToken"));
       const { data } = await api.put(
         `/products/${editingProduct.id}`,
         formData,
         {
           headers: {
-            Authorization: `Barear ${token}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -92,8 +92,8 @@ export const ProductProvider = ({ children }) => {
           return product;
         }
       });
+      setEditingProduct(null);
       setListProduct(newListProduct);
-      setEditingProduct({});
     } catch (error) {
       console.log(error);
     }
@@ -101,17 +101,18 @@ export const ProductProvider = ({ children }) => {
 
   const deleteItem = async (id) => {
     try {
-      const token = localStorage.getItem("FSToken").accessToken;
+      const token = JSON.parse(localStorage.getItem("@FSToken"));
       api.delete(`/products/${id}`, {
         headers: {
-          Authorization: `Barear ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
-      const newListItem = listProduct.map((product) => {
+      const newListItem = listProduct.filter((product) => {
         if (product.id != id) {
           return product;
         }
       });
+      setDeleteItemModal(null);
       setListProduct(newListItem);
     } catch (error) {
       console.log(error);
@@ -165,7 +166,7 @@ export const ProductProvider = ({ children }) => {
         setDeleteItemModal,
         cartTotalValue,
         cartCounter,
-        setListProduct
+        setListProduct,
       }}
     >
       {children}
