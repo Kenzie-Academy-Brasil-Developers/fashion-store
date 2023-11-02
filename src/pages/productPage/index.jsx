@@ -8,10 +8,6 @@ import { api } from "../../services/api";
 export const ProductPage = () => {
   const { cartIsOpen, listProduct, addItemCart } = useContext(productContext);
   const [currProduct, setCurrProduct] = useState({});
-  console.log(
-    "🚀 ~ file: index.jsx:11 ~ ProductPage ~ currProduct:",
-    currProduct
-  );
   const [hightLights, setHighLights] = useState([]);
 
   const { id } = useParams();

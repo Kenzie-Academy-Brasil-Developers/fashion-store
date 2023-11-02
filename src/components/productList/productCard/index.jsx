@@ -68,7 +68,7 @@ export const ProductCardAdminView = ({ product }) => {
       <img src={product.image} alt={product.name} />
       <div className={styles.ProductCardAdminView__info} >
         <h2>{product.name}</h2>
-        <p>{product.price.toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}</p>
+        <p>{Number(product.price).toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}</p>
       </div>
       <div className={styles.ProductCardAdminView__Btncontainer} >
         <MdOutlineModeEditOutline
