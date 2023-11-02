@@ -3,7 +3,7 @@ import { LoginForm } from "../../components";
 
 export const LoginPage = () => {
   return (
-    <div>
+    <div className="container">
       <section>
         <img src={bannerImg} alt="banner image" />
         <LoginForm />

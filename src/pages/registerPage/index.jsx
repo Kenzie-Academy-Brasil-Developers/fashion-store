@@ -3,7 +3,7 @@ import { RegisterAdminForm } from "../../components";
 
 export const RegisterPage = () => {
   return (
-    <section>
+    <section className="container">
       <img src={registerBanner} alt="register banner" />
       <RegisterAdminForm />
     </section>
