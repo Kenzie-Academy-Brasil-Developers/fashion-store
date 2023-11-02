@@ -55,7 +55,7 @@ export const ProductsListAdminView = () => {
             onClick={() => setCreateProduct(true)}
             className="btn newProduct"
           >
-            <LiaPlusCircleSolid size={20} /> NOVO PRODUTO{" "}
+            <LiaPlusCircleSolid size={30} /> NOVO PRODUTO{" "}
           </button>
         </div>
         <ul>

@@ -143,7 +143,7 @@ export const RegisterProductForm = () => {
           error={errors.description}
         />
         <button className="btn newProduct">
-          <LiaPlusCircleSolid size={20} />
+          <LiaPlusCircleSolid size={30} />
           NOVO PRODUTO
         </button>
       </form>
@@ -198,7 +198,7 @@ export const UpdateProductForm = () => {
           error={errors.description}
         />
         <button className="btn editProduct">
-          <MdOutlineModeEditOutline size={20} />
+          <MdOutlineModeEditOutline size={30} />
           EDITAR PRODUTO
         </button>
       </form>
