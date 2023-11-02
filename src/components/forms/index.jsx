@@ -12,6 +12,7 @@ import { useContext } from "react";
 import { productContext } from "../../providers/productsProvider.jsx";
 import { loginContext } from "../../providers/loginProvider.jsx";
 import { Link } from "react-router-dom";
+import styles from "./style.module.scss";
 
 export const LoginForm = () => {
   const { login } = useContext(loginContext);
@@ -26,21 +27,23 @@ export const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <form onSubmit={handleSubmit(submit)} className={styles.form}>
       <h2 className="title-2">ENTRAR</h2>
-      <StdInput
-        type={"text"}
-        placeholder={"Email"}
-        {...register("email")}
-        error={errors.email}
-      />
-      <StdInput
-        type={"password"}
-        placeholder={"Senha"}
-        {...register("password")}
-        error={errors.password}
-      />
-      <div>
+      <div className={styles.inputsDiv}>
+        <StdInput
+          type={"text"}
+          placeholder={"Email"}
+          {...register("email")}
+          error={errors.email}
+        />
+        <StdInput
+          type={"password"}
+          placeholder={"Senha"}
+          {...register("password")}
+          error={errors.password}
+        />
+      </div>
+      <div className={styles.buttonsDiv}>
         <button type="submit" className="btn access">
           ACESSAR
         </button>

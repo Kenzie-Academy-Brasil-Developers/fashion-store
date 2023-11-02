@@ -12,6 +12,8 @@
   font-size: var(--sm-price);
   line-height: 1.3181rem;
 
+  transition: 0.5s;
+
   &.access {
     padding-inline: 1.5rem;
   }
@@ -55,4 +57,9 @@
   &.cartIcon {
     padding-inline: 1rem;
   }
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
 }
