@@ -7,7 +7,7 @@ import {
 } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { productContext } from "../../../providers/productsProvider";
-import styles from "./index.module.scss"
+import styles from "./index.module.scss";
 
 export const ProductCard = ({ product }) => {
   const { addItemCart } = useContext(productContext);
@@ -53,7 +53,11 @@ export const ProductCardModal = ({ product }) => {
           })}
         </p>
       </div>
-      {product.count > 1 && <p className={styles.ProductCardModal__counter} >{`x ${product.count}`}</p>}
+      {product.count > 1 && (
+        <p
+          className={styles.ProductCardModal__counter}
+        >{`x ${product.count}`}</p>
+      )}
       <button onClick={() => removeItemCart(product)}>
         <MdRemove size={30} />
       </button>
@@ -66,11 +70,16 @@ export const ProductCardAdminView = ({ product }) => {
   return (
     <li className={styles.ProductCardAdminView__container}>
       <img src={product.image} alt={product.name} />
-      <div className={styles.ProductCardAdminView__info} >
+      <div className={styles.ProductCardAdminView__info}>
         <h2>{product.name}</h2>
-        <p>{Number(product.price).toLocaleString("pt-BR", { style: "currency", currency: "BRL"})}</p>
+        <p>
+          {Number(product.price).toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </p>
       </div>
-      <div className={styles.ProductCardAdminView__Btncontainer} >
+      <div className={styles.ProductCardAdminView__Btncontainer}>
         <MdOutlineModeEditOutline
           onClick={() => {
             setEditingProduct(product);

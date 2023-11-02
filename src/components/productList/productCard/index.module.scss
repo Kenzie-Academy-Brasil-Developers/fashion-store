@@ -65,8 +65,8 @@
 
 .ProductCardModal__counter {
   position: relative;
-  left: .3125rem;
-  bottom: .8125rem;
+  left: 0.3125rem;
+  bottom: 0.8125rem;
 }
 
 .ProductCardAdminView__container {
@@ -76,12 +76,12 @@
   width: 100%;
   padding: 1%;
   border-radius: 6px;
-  img{
+  img {
     max-height: 12rem;
     object-fit: contain;
     margin-right: 1.5rem;
   }
-    &:hover {
+  &:hover {
     background-color: var(--gray);
     transition: 200ms;
   }

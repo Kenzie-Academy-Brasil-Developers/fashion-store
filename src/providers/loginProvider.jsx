@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { api } from "../services/api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -18,10 +18,6 @@ export const LoginProvider = ({ children }) => {
             Authorization: `Bearer ${user.accessToken}`,
           },
         });
-        console.log(
-          "🚀 ~ file: loginProvider.jsx:18 ~ getAutoLogin ~ data:",
-          data
-        );
         navigate("/dashboard");
       } catch (error) {
         console.log(error);
