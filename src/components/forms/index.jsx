@@ -44,7 +44,9 @@ export const LoginForm = () => {
         <button type="submit" className="btn access">
           ACESSAR
         </button>
-        <button className="btn register">CADASTRE-SE</button>
+        <Link to={"/register"} className="btn register">
+          CADASTRE-SE
+        </Link>
       </div>
     </form>
   );

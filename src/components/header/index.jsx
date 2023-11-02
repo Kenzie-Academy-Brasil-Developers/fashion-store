@@ -13,7 +13,7 @@ export const AppHeader = () => {
         <img src={logoImg} alt="fashion logo" />
         {pathname === "/" || pathname.includes("product/") ? (
           <button onClick={() => setCartIsOpen(true)}>
-            <MdOutlineShoppingCart size={25} />
+            <MdOutlineShoppingCart size={30} />
           </button>
         ) : null}
         {cartCounter != 0 && pathname === "/" || pathname.includes("product/") ? <span>{`${cartCounter}`}</span> : null}
