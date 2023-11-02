@@ -16,7 +16,7 @@ export const AppHeader = () => {
             <MdOutlineShoppingCart size={25} />
           </button>
         ) : null}
-        {cartCounter != 0 && <span>{`${cartCounter}`}</span>}
+        {cartCounter != 0 && pathname === "/" || pathname.includes("product/") ? <span>{`${cartCounter}`}</span> : null}
       </div>
     </header>
   );
