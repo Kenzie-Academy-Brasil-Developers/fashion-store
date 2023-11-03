@@ -1,4 +1,4 @@
-.cartModal__overlay {
+.modal__overlay {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -41,4 +41,64 @@
   top: 1%;
 
   cursor: pointer;
+}
+
+.productModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productModal__container {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  flex-direction: column;
+  background-color: var(--white);
+  width: 50%;
+  max-width: 37.5rem;
+  padding: 1%;
+  box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
+
+  h2 {
+    margin-bottom: 1.25rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9375rem;
+  }
+
+  button {
+    align-self: flex-end;
+  }
+
+  textarea {
+    resize: none;
+    width: 35.5rem;
+    height: 6.25rem;
+    border: none;
+    padding-top: 1rem;
+
+    background-color: var(--gray);
+    padding-left: 1rem;
+    outline: none;
+
+    &::placeholder {
+      font-size: var(--title-6);
+      line-height: 1.945rem;
+
+      font-weight: var(--weight-3);
+      color: var(--opacity);
+    }
+  }
+}
+
+.productModal__closeBtn {
+  position: absolute;
+  right: 2%;
+  top: 2%;
 }

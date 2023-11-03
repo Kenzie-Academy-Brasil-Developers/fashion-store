@@ -9,16 +9,22 @@ export const CartModal = () => {
   const { setCartIsOpen, listCart, cartTotalValue } =
     useContext(productContext);
   return (
-    <div className={styles.cartModal__overlay}>
+    <div className={styles.modal__overlay}>
       <div className={styles.cartModal__container} role="dialog">
-        <MdClose className={styles.cartModal__closeBtn} onClick={() => setCartIsOpen(null)} size={32} />
+        <MdClose
+          className={styles.cartModal__closeBtn}
+          onClick={() => setCartIsOpen(null)}
+          size={32}
+        />
         <h2>Carrinho</h2>
         <ul>
           {listCart?.map((listItem) => (
             <ProductCardModal product={listItem} key={listItem.id} />
           ))}
         </ul>
-        <p className={styles.totalValue__display}>{`Total: ${cartTotalValue.toLocaleString("pt-BR", {
+        <p
+          className={styles.totalValue__display}
+        >{`Total: ${cartTotalValue.toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
         })}`}</p>
@@ -30,9 +36,13 @@ export const CartModal = () => {
 export const RegisterProductModal = () => {
   const { setCreateProduct } = useContext(productContext);
   return (
-    <div className="overlay">
-      <div className="modalContainer" role="dialog">
-        <MdClose onClick={() => setCreateProduct(null)} size={20} />
+    <div className={`${styles.modal__overlay} ${styles.productModal}`}>
+      <div className={styles.productModal__container} role="dialog">
+        <MdClose
+          onClick={() => setCreateProduct(null)}
+          size={32}
+          className={styles.productModal__closeBtn}
+        />
         <h2 className="modal-title">NOVO PRODUTO</h2>
         <RegisterProductForm />
       </div>
@@ -43,9 +53,13 @@ export const RegisterProductModal = () => {
 export const UpdateProductModal = () => {
   const { setEditingProduct } = useContext(productContext);
   return (
-    <div className="overlay">
-      <div className="modalContainer" role="dialog">
-        <MdClose onClick={() => setEditingProduct(null)} size={20} />
+    <div className={`${styles.modal__overlay} ${styles.productModal}`}>
+      <div className={styles.productModal__container} role="dialog">
+        <MdClose
+          onClick={() => setEditingProduct(null)}
+          size={32}
+          className={styles.productModal__closeBtn}
+        />
         <h2 className="modal-title">EDITAR PRODUTO</h2>
         <UpdateProductForm />
       </div>
@@ -61,7 +75,7 @@ export const ConfirmDeleteModal = () => {
       <div className="modalContainer" role="dialog">
         <div>
           <h2>Confirmar exclusão</h2>
-          <MdClose size={20} onClick={() => setDeleteItemModal(null)} />
+          <MdClose size={32} onClick={() => setDeleteItemModal(null)} />
         </div>
         <h2>Tem certeza que deseja fazer isso?</h2>
         <p>Esse processo não pode ser desfeito</p>
