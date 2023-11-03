@@ -1,0 +1,44 @@
+.navigationDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+
+  margin-top: 2rem;
+}
+
+.productSection {
+  width: 83.9375rem;
+  height: 43.1875rem;
+
+  margin: 2rem auto;
+
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+
+  img {
+    width: 36.25rem;
+    height: 41.8125rem;
+  }
+
+  .infosDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.productsSection {
+  display: flex;
+  flex-direction: column;
+
+  margin: 1rem 0 5rem 5rem;
+
+  ul {
+    display: flex;
+    gap: 1.5rem;
+
+    margin-top: 1.5rem;
+  }
+}

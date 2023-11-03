@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { productContext } from "../../providers/productsProvider";
 import { Link, useParams } from "react-router-dom";
 import { api } from "../../services/api";
+import styles from "./style.module.scss";
 
 export const ProductPage = () => {
   const { cartIsOpen, listProduct, addItemCart } = useContext(productContext);
@@ -34,15 +35,15 @@ export const ProductPage = () => {
   return (
     <>
       {cartIsOpen && <CartModal />}
-      <div>
+      <div className={styles.navigationDiv}>
         <Link to={"/"}>
           <h1 className="navigation-title sm">{"HOME >"}</h1>
         </Link>
         <span>{currProduct.name}</span>
       </div>
-      <section>
+      <section className={styles.productSection}>
         <img src={currProduct.image} alt="Product image" />
-        <div>
+        <div className={styles.infosDiv}>
           <h2 className="productCard-title">{currProduct.name}</h2>
           <p className="price">
             {Number(currProduct.price)?.toLocaleString("pt-BR", {
@@ -57,7 +58,7 @@ export const ProductPage = () => {
           </button>
         </div>
       </section>
-      <section>
+      <section className={styles.productsSection}>
         <h2 className="title-2">VEJA TAMBÉM</h2>
         <ul>
           {hightLights?.map((product) => (
