@@ -71,19 +71,25 @@ export const ConfirmDeleteModal = () => {
   const { deleteItem, deleteItemModal, setDeleteItemModal } =
     useContext(productContext);
   return (
-    <div className="overlay">
-      <div className="modalContainer" role="dialog">
+    <div className={`${styles.modal__overlay} ${styles.productModal}`}>
+      <div className={styles.deleteModal__container} role="dialog">
         <div>
-          <h2>Confirmar exclusão</h2>
-          <MdClose size={32} onClick={() => setDeleteItemModal(null)} />
+          <h2 className="title-2">Confirmar exclusão</h2>
         </div>
-        <h2>Tem certeza que deseja fazer isso?</h2>
-        <p>Esse processo não pode ser desfeito</p>
+        <h2 className="modal-">Tem certeza que deseja fazer isso?</h2>
+        <p className="paragraph">Esse processo não pode ser desfeito</p>
+        <div className={styles.deleteBtn__container}>
+          <button className="btn btn-cancel" onClick={() => setDeleteItemModal(null)}>
+            Cancelar
+          </button>
+          <button
+            className="btn btn-confirm"
+            onClick={() => deleteItem(deleteItemModal.id)}
+          >
+            Confirmar exclusão
+          </button>
+        </div>
       </div>
-      <button onClick={() => setDeleteItemModal(null)}>Cancelar</button>
-      <button onClick={() => deleteItem(deleteItemModal.id)}>
-        Confirmar exclusão
-      </button>
     </div>
   );
 };

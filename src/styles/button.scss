@@ -57,9 +57,21 @@
   &.cartIcon {
     padding-inline: 1rem;
   }
+
+  &.btn-cancel {
+    background-color: var(--white);
+    color: var(--black);
+    border: 0.0625rem solid var(--black);
+
+    padding-inline: 1rem;
+  }
+
+  &.btn-confirm{
+    padding-inline: 1rem ;
+  }
 }
 
 .btn:hover {
   transform: scale(1.05);
-  transition: 0.5s;
+  transition: 0.2s;
 }

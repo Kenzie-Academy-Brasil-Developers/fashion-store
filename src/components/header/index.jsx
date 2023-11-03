@@ -18,7 +18,9 @@ export const AppHeader = () => {
       <div className={divClassName}>
         <img src={logoImg} alt="fashion logo" />
         <div>
-          {pathname === "/" || pathname.includes("/product") ? (
+          {pathname === "/" ||
+          (pathname.includes("/product") &&
+            pathname != "/dashboard/products") ? (
             <button onClick={() => setCartIsOpen(true)}>
               <MdOutlineShoppingCart size={30} />
             </button>
