@@ -3,25 +3,26 @@ import { RegisterProductForm, UpdateProductForm } from "../forms";
 import { ProductCardModal } from "../productList/productCard";
 import { MdClose } from "react-icons/md";
 import { productContext } from "../../providers/productsProvider";
+import styles from "./index.module.scss";
 
 export const CartModal = () => {
   const { setCartIsOpen, listCart, cartTotalValue } =
     useContext(productContext);
   return (
-    <div className="overlay">
-      <div className="modalContainer" role="dialog">
-        <MdClose onClick={() => setCartIsOpen(null)} size={20} />
+    <div className={styles.cartModal__overlay}>
+      <div className={styles.cartModal__container} role="dialog">
+        <MdClose className={styles.cartModal__closeBtn} onClick={() => setCartIsOpen(null)} size={32} />
         <h2>Carrinho</h2>
         <ul>
           {listCart?.map((listItem) => (
             <ProductCardModal product={listItem} key={listItem.id} />
           ))}
         </ul>
+        <p className={styles.totalValue__display}>{`Total: ${cartTotalValue.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        })}`}</p>
       </div>
-      <p>{`Total: ${cartTotalValue.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      })}`}</p>
     </div>
   );
 };
