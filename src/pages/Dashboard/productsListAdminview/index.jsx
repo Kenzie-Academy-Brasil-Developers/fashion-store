@@ -9,6 +9,7 @@ import {
 import { useContext, useEffect } from "react";
 import { productContext } from "../../../providers/productsProvider";
 import { api } from "../../../services/api";
+import styles from "./index.module.scss"
 
 export const ProductsListAdminView = () => {
   const {
@@ -58,7 +59,7 @@ export const ProductsListAdminView = () => {
             <LiaPlusCircleSolid size={30} /> NOVO PRODUTO{" "}
           </button>
         </div>
-        <ul>
+        <ul className={styles.productList__container}>
           {listProduct?.map((product) => {
             return <ProductCardAdminView product={product} key={product.id} />;
           })}
