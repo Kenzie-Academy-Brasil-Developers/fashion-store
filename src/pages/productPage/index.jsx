@@ -52,7 +52,7 @@ export const ProductPage = () => {
             })}
           </p>
           <p className="paragraph">{currProduct.description}</p>
-          <button className="btn addToCart">
+          <button className="btn addToCart" onClick={() => addItemCart(currProduct)}>
             <MdOutlineAddShoppingCart size={20} />
             ADICIONAR AO CARRINHO
           </button>
