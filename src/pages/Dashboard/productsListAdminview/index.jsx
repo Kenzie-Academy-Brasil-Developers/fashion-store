@@ -35,7 +35,7 @@ export const ProductsListAdminView = () => {
 
   return (
     <>
-      <nav>
+      <nav className={styles.nav__container}>
         <ul>
           <Link to={"/dashboard"}>
             <li className="navigation-title sm">INÍCIO</li>
@@ -45,9 +45,9 @@ export const ProductsListAdminView = () => {
           </Link>
         </ul>
       </nav>
-      <section>
-        <div>
-          <div>
+      <section className={styles.admin__panel}>
+        <div className={styles.producsSection__header}>
+          <div className={styles.title__container}>
             <h1 className="title-2">PRODUTOS</h1>
             <p className="paragraph">Gerencie os produtos do catálogo</p>
           </div>
