@@ -9,12 +9,17 @@ export const AppHeader = () => {
   const pathname = window.location.pathname;
 
   const divClassName =
-    pathname === "/" || pathname.includes("/product")
+    pathname === "/" ||
+    pathname.includes("/product" && pathname !== "/dashboard/products")
       ? `${styles.div} ${styles.spaceBtw}`
-      : styles.div;
+      : `${styles.div}`;
 
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${
+        pathname === "/dashboard/products" && styles.dashboardPag
+      }`}
+    >
       <div className={divClassName}>
         <img src={logoImg} alt="fashion logo" />
         <div>

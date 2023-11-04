@@ -68,15 +68,15 @@ export const RegisterAdminForm = () => {
   };
 
   return (
-    <div>
+    <div className={styles.registerForm__container}>
       <Link to={"/login"}>
-        <button>
-          <MdArrowBack size={20} /> Voltar
+        <button className={`${styles.backBtn}`}>
+          <MdArrowBack size={28} />VOLTAR
         </button>
       </Link>
       <h2 className="title-2">CADASTRAR-SE</h2>
       <p className="paragraph">Seja bem vindo, administrador!</p>
-      <form onSubmit={handleSubmit(submit)}>
+      <form onSubmit={handleSubmit(submit)} className={styles.form__inputs}>
         <StdInput
           type={"text"}
           placeholder={"Nome"}
