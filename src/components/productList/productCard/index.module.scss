@@ -8,13 +8,6 @@
 
   button {
     width: 3.75rem;
-
-    // &:hover {
-    //   button {
-    //     background: var(--white) !important;
-    //     color: var(--black) !important;
-    //   }
-    // }
   }
 
   &:hover {
@@ -91,7 +84,7 @@
   display: flex;
   gap: 1rem;
   position: absolute;
-  right: 0;
+  right: 20px;
 }
 
 .ProductCardAdminView__info {
