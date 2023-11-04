@@ -1,0 +1,18 @@
+.flexBox {
+  height: 40.75rem;
+  margin-left: 5rem;
+  margin-top: 2rem;
+
+  ul {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    margin-top: 2rem;
+  }
+}
