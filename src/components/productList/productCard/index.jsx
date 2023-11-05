@@ -16,7 +16,7 @@ export const ProductCard = ({ product }) => {
       <img src={product.image} alt={product.name} />
       <h2 className="productCard-title">{product.name}</h2>
       <p className="price sm">
-        {product.price.toLocaleString("pt-BR", {
+        {Number(product.price).toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",
         })}
