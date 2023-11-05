@@ -1,6 +1,7 @@
+
 .content__container {
-  footer {
-    position: absolute;
-    bottom: 0;
-  }
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

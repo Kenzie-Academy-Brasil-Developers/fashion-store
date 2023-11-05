@@ -78,6 +78,9 @@
     background-color: var(--gray);
     transition: 200ms;
   }
+  img {
+    border-radius: var(--radius-1);
+  }
 }
 
 .ProductCardAdminView__Btncontainer {

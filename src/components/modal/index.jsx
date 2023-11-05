@@ -16,7 +16,7 @@ export const CartModal = () => {
           onClick={() => setCartIsOpen(null)}
           size={32}
         />
-        <h2>Carrinho</h2>
+        <h2>CARRINHO</h2>
         <ul>
           {listCart?.map((listItem) => (
             <ProductCardModal product={listItem} key={listItem.id} />
