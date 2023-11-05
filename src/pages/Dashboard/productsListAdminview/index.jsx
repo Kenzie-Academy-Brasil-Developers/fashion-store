@@ -9,7 +9,7 @@ import {
 import { useContext, useEffect } from "react";
 import { productContext } from "../../../providers/productsProvider";
 import { api } from "../../../services/api";
-import styles from "./index.module.scss"
+import styles from "./index.module.scss";
 
 export const ProductsListAdminView = () => {
   const {

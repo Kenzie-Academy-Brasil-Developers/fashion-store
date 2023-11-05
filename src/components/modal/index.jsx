@@ -79,7 +79,10 @@ export const ConfirmDeleteModal = () => {
         <h2 className="modal-">Tem certeza que deseja fazer isso?</h2>
         <p className="paragraph">Esse processo não pode ser desfeito</p>
         <div className={styles.deleteBtn__container}>
-          <button className="btn btn-cancel" onClick={() => setDeleteItemModal(null)}>
+          <button
+            className="btn btn-cancel"
+            onClick={() => setDeleteItemModal(null)}
+          >
             Cancelar
           </button>
           <button

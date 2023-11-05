@@ -25,7 +25,7 @@ export const Dashboard = () => {
         </ul>
       </nav>
       <section className={styles.admin__welcome}>
-        <div  className={styles.title__container}>
+        <div className={styles.title__container}>
           <h1 className="title-2">PAINEL DO ADMINISTRADOR</h1>
           <p className="paragraph">Seja bem vindo, {`${adminData}`}</p>
         </div>

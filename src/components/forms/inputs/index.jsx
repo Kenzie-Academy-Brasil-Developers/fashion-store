@@ -1,10 +1,11 @@
 import { forwardRef } from "react";
+import styles from "./index.module.scss";
 
 export const StdInput = forwardRef(({ error, ...rest }, ref) => {
   return (
     <>
       <input {...rest} ref={ref} />
-      {error && <small>{error.message}</small>}
+      {error && <small className={styles.error_message}>{error.message}</small>}
     </>
   );
 });

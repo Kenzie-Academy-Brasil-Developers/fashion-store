@@ -1,6 +1,6 @@
 import registerBanner from "../../assets/registerBanner.png";
 import { RegisterAdminForm } from "../../components";
-import styles from "./index.module.scss"
+import styles from "./index.module.scss";
 
 export const RegisterPage = () => {
   return (

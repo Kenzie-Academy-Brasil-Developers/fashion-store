@@ -71,7 +71,8 @@ export const RegisterAdminForm = () => {
     <div className={styles.registerForm__container}>
       <Link to={"/login"}>
         <button className={`${styles.backBtn}`}>
-          <MdArrowBack size={28} />VOLTAR
+          <MdArrowBack size={28} />
+          VOLTAR
         </button>
       </Link>
       <h2 className="title-2">CADASTRAR-SE</h2>

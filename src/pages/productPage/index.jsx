@@ -39,7 +39,9 @@ export const ProductPage = () => {
         <Link to={"/"}>
           <h1 className="navigation-title sm">{"HOME >"}</h1>
         </Link>
-        <span className="navigation-title sm">{currProduct.name?.toUpperCase()}</span>
+        <span className="navigation-title sm">
+          {currProduct.name?.toUpperCase()}
+        </span>
       </div>
       <section className={styles.productSection}>
         <img src={currProduct.image} alt="Product image" />
