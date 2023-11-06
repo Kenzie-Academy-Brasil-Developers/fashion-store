@@ -85,10 +85,12 @@ export const ProductCardAdminView = ({ product }) => {
             setEditingProduct(product);
           }}
           size={28}
+          className={styles.icon}
         />
         <MdOutlineDeleteOutline
           onClick={() => setDeleteItemModal(product)}
           size={28}
+          className={styles.icon}
         />
       </div>
     </li>
