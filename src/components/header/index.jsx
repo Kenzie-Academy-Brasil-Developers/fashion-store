@@ -13,7 +13,7 @@ export const AppHeader = () => {
 
   const divClassName =
     pathname === "/" ||
-    pathname.includes("/product/" && pathname !== "/dashboard/products")
+    (pathname.includes("/product/") && pathname !== "/dashboard/products")
       ? `${styles.div} ${styles.spaceBtw}`
       : `${styles.div}`;
 
