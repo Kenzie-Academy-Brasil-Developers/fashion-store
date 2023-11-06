@@ -1,34 +1,48 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { RegisterProductForm, UpdateProductForm } from "../forms";
 import { ProductCardModal } from "../productList/productCard";
 import { MdClose } from "react-icons/md";
 import { productContext } from "../../providers/productsProvider";
 import styles from "./index.module.scss";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const CartModal = () => {
-  const { setCartIsOpen, listCart, cartTotalValue } =
+  const { setCartIsOpen, listCart, cartTotalValue, cartIsOpen } =
     useContext(productContext);
+
   return (
     <div className={styles.modal__overlay}>
-      <div className={styles.cartModal__container} role="dialog">
-        <MdClose
-          className={styles.cartModal__closeBtn}
-          onClick={() => setCartIsOpen(null)}
-          size={32}
-        />
-        <h2>CARRINHO</h2>
-        <ul>
-          {listCart?.map((listItem) => (
-            <ProductCardModal product={listItem} key={listItem.id} />
-          ))}
-        </ul>
-        <p
-          className={styles.totalValue__display}
-        >{`Total: ${cartTotalValue.toLocaleString("pt-BR", {
-          style: "currency",
-          currency: "BRL",
-        })}`}</p>
-      </div>
+      <AnimatePresence>
+        {cartIsOpen && (
+          <motion.div
+            key={"modal"}
+            initial={{ x: 300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -300, opacity: 0 }}
+            // transition={{ duration: 0.2 }}
+            className={styles.cartModal__container}
+            role="dialog"
+          >
+            <MdClose
+              className={styles.cartModal__closeBtn}
+              onClick={() => setCartIsOpen(null)}
+              size={32}
+            />
+            <h2>CARRINHO</h2>
+            <ul>
+              {listCart?.map((listItem) => (
+                <ProductCardModal product={listItem} key={listItem.id} />
+              ))}
+            </ul>
+            <p
+              className={styles.totalValue__display}
+            >{`Total: ${cartTotalValue.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}`}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

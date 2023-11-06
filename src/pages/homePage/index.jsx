@@ -7,7 +7,7 @@ export const HomePage = () => {
 
   return (
     <div className="container homePage">
-      {cartIsOpen && <CartModal />}
+      {cartIsOpen && <CartModal/>}
       <BannerSection />
       <ProductsList />
     </div>

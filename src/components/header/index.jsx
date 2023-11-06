@@ -10,7 +10,7 @@ export const AppHeader = () => {
 
   const divClassName =
     pathname === "/" ||
-    pathname.includes("/product/" && pathname !== "/dashboard/products")
+    (pathname.includes("/product/") && pathname !== "/dashboard/products")
       ? `${styles.div} ${styles.spaceBtw}`
       : `${styles.div}`;
 
@@ -22,19 +22,18 @@ export const AppHeader = () => {
     >
       <div className={divClassName}>
         <img src={logoImg} alt="fashion logo" />
-        <div>
-          {pathname === "/" ||
-          (pathname.includes("/product") &&
-            pathname != "/dashboard/products") ? (
+        {pathname === "/" ||
+        (pathname.includes("/product") && pathname != "/dashboard/products") ? (
+          <div>
             <button onClick={() => setCartIsOpen(true)}>
               <MdOutlineShoppingCart size={30} />
             </button>
-          ) : null}
-          {(cartCounter != 0 && pathname === "/") ||
-          pathname.includes("product/") ? (
-            <span>{`${cartCounter}`}</span>
-          ) : null}
-        </div>
+          </div>
+        ) : null}
+        {(cartCounter != 0 && pathname === "/") ||
+        pathname.includes("product/") ? (
+          <span>{`${cartCounter}`}</span>
+        ) : null}
       </div>
     </header>
   );
