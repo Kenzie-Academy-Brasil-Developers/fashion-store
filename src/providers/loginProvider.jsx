@@ -34,7 +34,7 @@ export const LoginProvider = ({ children }) => {
       toast.success("Login realizado com sucesso!");
       navigate("/dashboard");
     } catch (error) {
-      toast.error("algo deu errado");
+      toast.error("Crêdenciais inválidas!");
       console.log(error);
     }
   };
@@ -47,11 +47,11 @@ export const LoginProvider = ({ children }) => {
   const createUser = async (formData) => {
     try {
       await api.post("/users", formData);
-      toast.success("usuario criado com sucesso");
+      toast.success("Usuario criado com sucesso");
       navigate("/login");
     } catch (error) {
       console.log(error);
-      toast.error("algo deu errado");
+      toast.error("Algo deu errado");
     }
   };
 

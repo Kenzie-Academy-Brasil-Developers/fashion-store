@@ -94,6 +94,10 @@
   gap: 1rem;
   position: absolute;
   right: 20px;
+
+  .icon {
+    cursor: pointer;
+  }
 }
 
 .ProductCardAdminView__info {

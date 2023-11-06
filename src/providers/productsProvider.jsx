@@ -1,5 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { api } from "../services/api";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const productContext = createContext({});
 
@@ -66,6 +68,7 @@ export const ProductProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       });
+      toast.success("Produto adicionado com sucesso!");
       setListProduct([...listProduct, data]);
       setCreateProduct(null);
     } catch (error) {
@@ -92,6 +95,7 @@ export const ProductProvider = ({ children }) => {
           return product;
         }
       });
+      toast.success("Produto editado com sucesso!");
       setEditingProduct(null);
       setListProduct(newListProduct);
     } catch (error) {
@@ -112,6 +116,7 @@ export const ProductProvider = ({ children }) => {
           return product;
         }
       });
+      toast.success("Produto removido com sucesso!");
       setDeleteItemModal(null);
       setListProduct(newListItem);
     } catch (error) {
@@ -128,6 +133,7 @@ export const ProductProvider = ({ children }) => {
       list.push({ ...product, count: 1 });
     }
     setListCart(list);
+    toast.success("Produto adicionado ao carrinho!");
     localStorage.setItem("@FSCart", JSON.stringify(listCart));
   };
 
@@ -140,6 +146,7 @@ export const ProductProvider = ({ children }) => {
         return item;
       }
     });
+    toast.success("Produto removido do carrinho!");
     setListCart(newList);
   };
 
