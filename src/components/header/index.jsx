@@ -3,16 +3,23 @@ import logoImg from "../../assets/FAshionSTORE.png";
 import { useContext } from "react";
 import { productContext } from "../../providers/productsProvider";
 import styles from "./style.module.scss";
+import { useNavigate } from "react-router-dom";
 
 export const AppHeader = () => {
   const { setCartIsOpen, cartCounter } = useContext(productContext);
   const pathname = window.location.pathname;
+
+  const navigate = useNavigate();
 
   const divClassName =
     pathname === "/" ||
     pathname.includes("/product/" && pathname !== "/dashboard/products")
       ? `${styles.div} ${styles.spaceBtw}`
       : `${styles.div}`;
+
+  const backToHome = () => {
+    navigate("/");
+  };
 
   return (
     <header
@@ -21,7 +28,7 @@ export const AppHeader = () => {
       }`}
     >
       <div className={divClassName}>
-        <img src={logoImg} alt="fashion logo" />
+        <img onClick={backToHome} src={logoImg} alt="fashion logo" />
         <div>
           {pathname === "/" ||
           (pathname.includes("/product") &&
