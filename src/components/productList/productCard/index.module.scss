@@ -55,16 +55,16 @@
 }
 
 .ProductCardModal__info {
-  margin-left: 2rem;
+  margin-left: 1rem;
   h2 {
     margin-bottom: 0.5rem;
   }
 }
 
 .ProductCardModal__counter {
-  position: relative;
-  left: 0.3125rem;
-  bottom: 0.8125rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .ProductCardAdminView__container {

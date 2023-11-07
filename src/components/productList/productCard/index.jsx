@@ -45,19 +45,21 @@ export const ProductCardModal = ({ product }) => {
     <li className={styles.ProductCardModal__container}>
       <img src={product.image} alt={product.name} />
       <div className={styles.ProductCardModal__info}>
-        <h2>{product.name}</h2>
-        <p>
-          {product.price.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          })}
-        </p>
+        <h2 className="productCard-title">{product.name}</h2>
+        <div className={styles.ProductCardModal__counter}>
+          <p>
+            {product.price.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </p>
+          {product.count > 1 && (
+            <p
+              className={styles.ProductCardModal__counter}
+            >{`x ${product.count}`}</p>
+          )}
+        </div>
       </div>
-      {product.count > 1 && (
-        <p
-          className={styles.ProductCardModal__counter}
-        >{`x ${product.count}`}</p>
-      )}
       <button onClick={() => removeItemCart(product)}>
         <MdRemove size={30} />
       </button>
