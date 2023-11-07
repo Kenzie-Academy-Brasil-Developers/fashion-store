@@ -1,13 +1,14 @@
 .section {
-  width: 80%;
-
-  margin-top: 2rem;
-
+  width: 90%;
+  margin: 3rem 0;
   .ul {
     margin-top: 1rem;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    display: flex;
+    overflow-x: scroll;
     gap: 0.5rem;
+  }
+
+  li {
+    max-width: 90%;
   }
 }

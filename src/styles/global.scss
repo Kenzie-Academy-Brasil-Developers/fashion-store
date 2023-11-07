@@ -2,8 +2,8 @@
   --font-primary: "Oswald", sans-serif;
   --font-secondary: "Roboto", sans-serif;
 
-  --title-1: 6.25rem;
-  --title-2: 3.75rem;
+  --title-1: clamp(3.75rem, 18vw, 6.25rem);
+  --title-2: clamp(2.75rem, 13vw, 3.75rem );
   --title-3: 38px;
   --title-4: 2rem;
   --title-5: 1.5rem;

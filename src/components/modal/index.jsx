@@ -15,11 +15,9 @@ export const CartModal = () => {
       <AnimatePresence>
         {cartIsOpen && (
           <motion.div
-            key={"modal"}
             initial={{ x: 300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -300, opacity: 0 }}
-            // transition={{ duration: 0.2 }}
+            exit={{ x: 300, opacity: 0 }}
             className={styles.cartModal__container}
             role="dialog"
           >

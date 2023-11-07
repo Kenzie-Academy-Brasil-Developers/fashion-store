@@ -6,7 +6,7 @@ const BannerSection = () => {
   return (
     <section className={styles.section}>
       <img src={bannerImg} alt="banner image" />
-      <div>
+      <div className={styles.banner__buttonContainer}>
         <h1 className="title-1">KENZIE FASHION STORE</h1>
         <motion.button
           whileTap={{ scale: 0.9 }}

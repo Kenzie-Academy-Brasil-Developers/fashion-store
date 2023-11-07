@@ -1,12 +1,25 @@
 .section {
-  width: 80%;
-  height: 43.1875rem;
+  width: 100%;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 3rem;
 
   button {
-    margin-top: 5rem;
+    align-self: center;
   }
+
+  img {
+    width: 95%;
+    margin: 1rem auto;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+.banner__buttonContainer {
+  display: flex;
+  flex-direction: column;
 }
