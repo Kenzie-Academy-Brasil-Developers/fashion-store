@@ -1,8 +1,10 @@
 .section {
   width: 90%;
   margin: 3rem 0;
+
   .ul {
     margin-top: 1rem;
+    height: 38rem;
     display: flex;
     overflow-x: scroll;
     gap: 0.5rem;
@@ -10,5 +12,6 @@
 
   li {
     max-width: 90%;
+    height: fit-content;
   }
 }
