@@ -13,9 +13,7 @@ export const AppHeader = () => {
 
   const divClassName =
     pathname === "/" ||
-    (pathname.includes("/product/") && pathname !== "/dashboard/products")(
-      pathname.includes("/product/") && pathname !== "/dashboard/products"
-    )
+    (pathname.includes("/product/") && pathname !== "/dashboard/products")
       ? `${styles.div} ${styles.spaceBtw}`
       : `${styles.div}`;
 
@@ -30,7 +28,7 @@ export const AppHeader = () => {
       }`}
     >
       <div className={divClassName}>
-        <img src={logoImg} alt="fashion logo" />
+        <img onClick={backToHome} src={logoImg} alt="fashion logo" />
         <div className={styles.cart__headerContainer}>
           {pathname === "/" ||
           (pathname.includes("/product") &&
