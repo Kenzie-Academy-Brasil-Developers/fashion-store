@@ -10,8 +10,30 @@ export const CartModal = () => {
   const { setCartIsOpen, listCart, cartTotalValue, cartIsOpen } =
     useContext(productContext);
 
+  const handleClickOutsideModal = (event) => {
+    if (cartIsOpen && event.target.id === "modalOverlay-1") {
+      setCartIsOpen(null);
+    }
+  };
+
+  const handleKeyPress = (event) => {
+    if (cartIsOpen && event.keyCode === 27) {
+      setCartIsOpen(null);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutsideModal);
+    document.addEventListener("keydown", handleKeyPress);
+  }, [cartIsOpen]);
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutsideModal);
+    document.addEventListener("keydown", handleKeyPress);
+  }, []);
+
   return (
-    <div className={styles.modal__overlay}>
+    <div className={styles.modal__overlay} id="modalOverlay-1">
       <AnimatePresence>
         {cartIsOpen && (
           <motion.div
