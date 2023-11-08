@@ -11,7 +11,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 32rem;
+  width: 28rem;
   height: 60%;
   padding: 0.5%;
   display: flex;
@@ -130,4 +130,10 @@
   align-self: center;
   display: flex;
   gap: 0.625rem;
+}
+
+@media (max-width: 730px) {
+  .cartModal__container {
+    width: 60%;
+  }
 }
