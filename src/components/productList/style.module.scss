@@ -4,9 +4,9 @@
 
   .ul {
     margin-top: 1rem;
-    height: 38rem;
+    height: 40rem;
     display: flex;
-    overflow-x: scroll;
+    overflow: auto;
     gap: 0.5rem;
   }
 
