@@ -5,15 +5,46 @@ import { motion } from "framer-motion";
 const BannerSection = () => {
   return (
     <section className={styles.section}>
-      <img src={bannerImg} alt="banner image" />
+      <motion.img
+        src={bannerImg}
+        alt="banner image"
+        initial={{ x: -1000, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          type: "spring",
+          duration: 3,
+          stiffness: 40,
+          delay: 0.2,
+        }}
+      />
       <div className={styles.banner__buttonContainer}>
-        <h1 className="title-1">KENZIE FASHION STORE</h1>
-        <motion.button
-          whileTap={{ scale: 0.9 }}
-          className="btn checkOut"
+        <motion.h1
+          transition={{
+            type: "spring",
+            delay: 0.2,
+            duration: 1.5,
+            stiffness: 40,
+          }}
+          initial={{ x: 1300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          className="title-1"
         >
-          CONFIRA AS OFERTAS
-        </motion.button>
+          KENZIE FASHION STORE
+        </motion.h1>
+
+        <motion.div
+          initial={{ x: 1300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            type: "spring",
+            delay: 0.3,
+            duration: 1.5,
+            stiffness: 40,
+          }}
+          className={styles.btn__container}
+        >
+          <button className="btn checkOut">CONFIRA AS OFERTAS</button>
+        </motion.div>
       </div>
     </section>
   );
