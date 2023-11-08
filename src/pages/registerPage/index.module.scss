@@ -9,3 +9,13 @@
     max-height: 37rem;
   }
 }
+
+@media(max-width: 480px){
+  .content__container{
+    max-width: 480px;
+    flex-direction: column;
+    img{
+      width: 100%;
+    }
+  }
+}

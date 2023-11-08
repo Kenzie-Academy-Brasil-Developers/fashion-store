@@ -48,6 +48,26 @@
   font-size: var(--title-7);
 }
 
+@media (max-width: 480px){
+  .registerForm__container{
+    a{
+      align-self: flex-end;
+    }
+    max-width: 100%;
+    form{
+      max-width: 100%;
+      input{
+        max-width: 100%;
+      }
+      button{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+
 @media (min-width: 1218px) {
   .form {
     width: 35.5rem;
@@ -57,3 +77,4 @@
     }
   }
 }
+
