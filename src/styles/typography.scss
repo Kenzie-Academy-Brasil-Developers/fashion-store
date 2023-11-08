@@ -1,6 +1,6 @@
 .title-1 {
   font-size: var(--title-1);
-  line-height: 5.5rem;
+  line-height: clamp(5.5rem, 15vw, 7.5rem) ;
 
   font-weight: var(--weight-2);
   color: var(--black);
