@@ -1,6 +1,6 @@
 .section {
   width: 90%;
-  margin: 3rem 0;
+  margin: 3rem 0 0 0;
 
   .ul {
     margin-top: 1rem;
@@ -13,5 +13,13 @@
   li {
     max-width: 90%;
     height: fit-content;
+  }
+}
+
+@media (max-width: 400px) {
+  .section {
+    .ul {
+      height: 37rem;
+    }
   }
 }
