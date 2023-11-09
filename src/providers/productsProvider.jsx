@@ -60,6 +60,13 @@ export const ProductProvider = ({ children }) => {
     }
   };
 
+    const scrollToTLocation = (location) => {
+      window.scrollTo({
+        top: location,
+        behavior: "smooth",
+      });
+    };
+
   const createItem = async (formData) => {
     try {
       const token = JSON.parse(localStorage.getItem("@FSToken"));
@@ -174,6 +181,7 @@ export const ProductProvider = ({ children }) => {
         cartTotalValue,
         cartCounter,
         setListProduct,
+        scrollToTLocation,
       }}
     >
       {children}

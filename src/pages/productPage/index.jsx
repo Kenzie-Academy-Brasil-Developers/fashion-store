@@ -7,7 +7,8 @@ import { api } from "../../services/api";
 import styles from "./style.module.scss";
 
 export const ProductPage = () => {
-  const { cartIsOpen, listProduct, addItemCart } = useContext(productContext);
+  const { cartIsOpen, listProduct, addItemCart, scrollToTLocation } =
+    useContext(productContext);
   const [currProduct, setCurrProduct] = useState({});
   const [hightLights, setHighLights] = useState([]);
 
@@ -33,11 +34,11 @@ export const ProductPage = () => {
   }, [id, listProduct]);
 
   return (
-    <>
+    <div>
       {cartIsOpen && <CartModal />}
       <div className={styles.navigationDiv}>
         <Link to={"/"}>
-          <h1 className="navigation-title sm">{"HOME >"}</h1>
+          <h1 className="navigation-title sm" onClick={() => scrollToTLocation(0)}>{"HOME >"}</h1>
         </Link>
         <span className="navigation-title sm">
           {currProduct.name?.toUpperCase()}
@@ -71,6 +72,6 @@ export const ProductPage = () => {
           ))}
         </ul>
       </section>
-    </>
+    </div>
   );
 };

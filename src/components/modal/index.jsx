@@ -26,42 +26,59 @@ export const CartModal = () => {
     document.addEventListener("click", handleClickOutsideModal);
     document.addEventListener("keydown", handleKeyPress);
   }, [cartIsOpen]);
+  console.log("cartIsOpen", cartIsOpen);
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutsideModal);
     document.addEventListener("keydown", handleKeyPress);
   }, []);
 
+  const variants = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.2,
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: -100,
+    },
+  };
+
   return (
     <div className={styles.modal__overlay} id="modalOverlay-1">
       <AnimatePresence>
-        {cartIsOpen && (
-          <motion.div
-            initial={{ y: -300, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 300, opacity: 0 }}
-            className={styles.cartModal__container}
-            role="dialog"
-          >
-            <MdClose
-              className={styles.cartModal__closeBtn}
-              onClick={() => setCartIsOpen(null)}
-              size={32}
-            />
-            <h2>CARRINHO</h2>
-            <ul>
-              {listCart?.map((listItem) => (
-                <ProductCardModal product={listItem} key={listItem.id} />
-              ))}
-            </ul>
-            <p
-              className={styles.totalValue__display}
-            >{`Total: ${cartTotalValue.toLocaleString("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            })}`}</p>
-          </motion.div>
-        )}
+        <motion.div
+          key={"cartModal"}
+          initial="hidden"
+          animate={cartIsOpen ? "visible" : "hidden"}
+          exit="hidden"
+          variants={variants}
+          className={styles.cartModal__container}
+          role="dialog"
+        >
+          <MdClose
+            className={styles.cartModal__closeBtn}
+            onClick={() => setCartIsOpen(false)}
+            size={32}
+          />
+          <h2>CARRINHO</h2>
+          <ul>
+            {listCart?.map((listItem) => (
+              <ProductCardModal product={listItem} key={listItem.id} />
+            ))}
+          </ul>
+          <p
+            className={styles.totalValue__display}
+          >{`Total: ${cartTotalValue.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}`}</p>
+        </motion.div>
       </AnimatePresence>
     </div>
   );

@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import bannerImg from "../../assets/banner.png";
 import styles from "./style.module.scss";
 import { motion } from "framer-motion";
+import { productContext } from "../../providers/productsProvider";
 
 const BannerSection = () => {
+  const { scrollToTLocation } = useContext(productContext)
+
   return (
     <section className={styles.section}>
       <motion.img
@@ -43,7 +47,9 @@ const BannerSection = () => {
           }}
           className={styles.btn__container}
         >
-          <button className="btn checkOut">CONFIRA AS OFERTAS</button>
+          <button className="btn checkOut" onClick={() => scrollToTLocation(700)}>
+            CONFIRA AS OFERTAS
+          </button>
         </motion.div>
       </div>
     </section>

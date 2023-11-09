@@ -8,9 +8,11 @@ import {
 import { Link } from "react-router-dom";
 import { productContext } from "../../../providers/productsProvider";
 import styles from "./index.module.scss";
+import { motion } from "framer-motion";
 
 export const ProductCard = ({ product }) => {
-  const { addItemCart } = useContext(productContext);
+  const { addItemCart, scrollToTLocation } = useContext(productContext);
+
   return (
     <li className={styles.productCard__container}>
       <img src={product.image} alt={product.name} />
@@ -30,7 +32,11 @@ export const ProductCard = ({ product }) => {
         >
           <MdOutlineAddShoppingCart size={36} />
         </button>
-        <Link to={`/product/${product.id}`} className="know-more">
+        <Link
+          to={`/product/${product.id}`}
+          className="know-more"
+          onClick={() => scrollToTLocation(100)}
+        >
           SAIBA MAIS
         </Link>
       </div>
