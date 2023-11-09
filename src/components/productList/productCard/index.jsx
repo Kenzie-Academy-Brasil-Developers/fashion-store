@@ -13,6 +13,8 @@ import { motion } from "framer-motion";
 export const ProductCard = ({ product }) => {
   const { addItemCart, scrollToTLocation } = useContext(productContext);
 
+  
+
   return (
     <li className={styles.productCard__container}>
       <img src={product.image} alt={product.name} />
@@ -35,7 +37,7 @@ export const ProductCard = ({ product }) => {
         <Link
           to={`/product/${product.id}`}
           className="know-more"
-          onClick={() => scrollToTLocation(100)}
+          onClick={() => scrollToTLocation(90)}
         >
           SAIBA MAIS
         </Link>
