@@ -22,31 +22,31 @@ export const ProductPage = () => {
         const { data } = await api.get(`/products/${id}`);
         setCurrProduct(data);
       } catch (error) {
-        console.log(error);
+        console.err(error);
       }
 
       animate(
         "img",
-        { x: [-300, 0], opacity: [0, 1] },
-        { delay: 0.1, duration: 0.5, type: "spring", stiffness: 50 }
+        { x: [-300, 0], opacity: [0, 0.5, 1] },
+        { delay: 0.1, type: "spring", stiffness: 50 },
       );
 
       animate(
         "h2",
         { x: [300, 0], opacity: [0, 1] },
-        { delay: 0.2, duration: 0.6, type: "spring", stiffness: 50 }
+        { delay: 0.2, duration: 0.6, type: "spring", stiffness: 50 },
       );
 
       animate(
         "p",
         { x: [300, 0], opacity: [0, 1] },
-        { delay: 0.4, duration: 0.7, type: "spring", stiffness: 50 }
+        { delay: 0.4, duration: 0.7, type: "spring", stiffness: 50 },
       );
 
       animate(
         "span",
         { x: [300, 0], opacity: [0, 1] },
-        { delay: 0.3, duration: 0.8, type: "spring", stiffness: 50 }
+        { delay: 0.3, duration: 0.8, type: "spring", stiffness: 50 },
       );
 
       const animateDiv = document.querySelector("#cartBtn");
@@ -54,7 +54,7 @@ export const ProductPage = () => {
       animate(
         animateDiv,
         { x: [300, 0], opacity: [0, 1] },
-        { delay: 0.5, duration: 0.9, type: "spring", stiffness: 50 }
+        { delay: 0.5, duration: 0.9, type: "spring", stiffness: 50 },
       );
     };
 
@@ -63,7 +63,7 @@ export const ProductPage = () => {
 
   useEffect(() => {
     const filteredList = listProduct?.filter(
-      (product) => product.id !== Number(id)
+      (product) => product.id !== Number(id),
     );
     setHighLights(filteredList);
   }, [id, listProduct]);

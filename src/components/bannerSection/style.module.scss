@@ -50,7 +50,7 @@
   display: flex;
   justify-content: center;
 
-  @media(min-width: 64rem) {
+  @media (min-width: 64rem) {
     justify-content: flex-start;
   }
 }

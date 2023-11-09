@@ -23,7 +23,7 @@ export const registerAdminSchema = z
       .regex(/[0-9]+/, "A senha deve conter pelo menos um número")
       .regex(
         /[!@#$%^&*()_+,/{}:;>=<?]+/,
-        "A senha deve conter pelo menos um caractere especial"
+        "A senha deve conter pelo menos um caractere especial",
       ),
     passValidate: z.string().min(1, "A confirmação de senha é obrigatória"),
   })

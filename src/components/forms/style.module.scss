@@ -1,6 +1,6 @@
 .form {
   width: 90%;
- 
+
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -27,7 +27,7 @@
 
 .registerForm__container {
   width: 100%;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,7 +39,7 @@
 
   .form__inputs {
     width: 100%;
-    
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,10 +52,10 @@
 
     button {
       width: 100%;
-      
+
       display: flex;
       justify-content: center;
-      
+
       align-self: flex-end;
     }
   }
@@ -65,14 +65,14 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  
+
   font-size: var(--title-7);
 }
 
 @media (min-width: 1218px) {
   .registerForm__container {
     width: 90%;
-    
+
     align-items: initial;
 
     a {
@@ -81,7 +81,7 @@
 
     .form__inputs {
       align-items: initial;
-      
+
       button {
         width: 13.0625rem;
         align-self: flex-end;

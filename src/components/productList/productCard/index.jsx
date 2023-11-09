@@ -13,8 +13,6 @@ import { motion } from "framer-motion";
 export const ProductCard = ({ product }) => {
   const { addItemCart, scrollToTLocation } = useContext(productContext);
 
-  
-
   return (
     <li className={styles.productCard__container}>
       <img src={product.image} alt={product.name} />

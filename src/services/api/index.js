@@ -4,4 +4,3 @@ export const api = axios.create({
   baseURL: "https://fashion-store-api.onrender.com",
   timeout: 5 * 1000,
 });
-
