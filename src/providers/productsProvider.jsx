@@ -17,7 +17,7 @@ export const ProductProvider = ({ children }) => {
   const [listCart, setListCart] = useState(
     localStorage.getItem("@FSCart")
       ? JSON.parse(localStorage.getItem("@FSCart"))
-      : []
+      : [],
   );
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export const ProductProvider = ({ children }) => {
   useEffect(() => {
     const totalCartValue = listCart?.reduce(
       (acc, cur) => acc + cur.price * cur.count,
-      0
+      0,
     );
     setCartTotalValue(totalCartValue);
   }, [listCart]);
@@ -60,12 +60,12 @@ export const ProductProvider = ({ children }) => {
     }
   };
 
-    const scrollToTLocation = (location) => {
-      window.scrollTo({
-        top: location,
-        behavior: "smooth",
-      });
-    };
+  const scrollToTLocation = (location) => {
+    window.scrollTo({
+      top: location,
+      behavior: "smooth",
+    });
+  };
 
   const createItem = async (formData) => {
     try {
@@ -93,7 +93,7 @@ export const ProductProvider = ({ children }) => {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
       const newListProduct = listProduct.map((product) => {
         if (product.id === editingProduct.id) {

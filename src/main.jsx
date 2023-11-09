@@ -7,12 +7,12 @@ import { ProductProvider } from "./providers/productsProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
-    <BrowserRouter>
-      <LoginProvider>
-        <ProductProvider>
-          <App />
-        </ProductProvider>
-      </LoginProvider>
-    </BrowserRouter>
-  // </React.StrictMode>
+  <BrowserRouter>
+    <LoginProvider>
+      <ProductProvider>
+        <App />
+      </ProductProvider>
+    </LoginProvider>
+  </BrowserRouter>
+  // </React.StrictMode>,
 );

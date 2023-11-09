@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { productContext } from "../../providers/productsProvider";
 
 const BannerSection = () => {
-  const { scrollToTLocation } = useContext(productContext)
+  const { scrollToTLocation } = useContext(productContext);
 
   return (
     <section className={styles.section}>
@@ -47,7 +47,10 @@ const BannerSection = () => {
           }}
           className={styles.btn__container}
         >
-          <button className="btn checkOut" onClick={() => scrollToTLocation(700)}>
+          <button
+            className="btn checkOut"
+            onClick={() => scrollToTLocation(700)}
+          >
             CONFIRA AS OFERTAS
           </button>
         </motion.div>
