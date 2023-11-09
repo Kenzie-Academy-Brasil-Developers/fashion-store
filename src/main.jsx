@@ -6,7 +6,7 @@ import { LoginProvider } from "./providers/loginProvider.jsx";
 import { ProductProvider } from "./providers/productsProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
       <LoginProvider>
         <ProductProvider>
@@ -14,5 +14,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </ProductProvider>
       </LoginProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
