@@ -28,33 +28,33 @@ export const ProductPage = () => {
       animate(
         "img",
         { x: [-300, 0], opacity: [0, 1] },
-        { delay: 0.1, duration: 0.5, type: "spring", stiffness: 80 }
+        { delay: 0.1, duration: 0.5, type: "spring", stiffness: 50 }
       );
 
       animate(
         "h2",
         { x: [300, 0], opacity: [0, 1] },
-        { delay: 0.2, duration: 0.6, type: "spring", stiffness: 80 }
+        { delay: 0.2, duration: 0.6, type: "spring", stiffness: 50 }
       );
 
       animate(
         "p",
         { x: [300, 0], opacity: [0, 1] },
-        { delay: 0.4, duration: 0.7, type: "spring", stiffness: 80 }
+        { delay: 0.4, duration: 0.7, type: "spring", stiffness: 50 }
       );
 
       animate(
         "span",
         { x: [300, 0], opacity: [0, 1] },
-        { delay: 0.3, duration: 0.8, type: "spring", stiffness: 80 }
+        { delay: 0.3, duration: 0.8, type: "spring", stiffness: 50 }
       );
 
       const animateDiv = document.querySelector("#cartBtn");
-      
+
       animate(
         animateDiv,
         { x: [300, 0], opacity: [0, 1] },
-        { delay: 0.5, duration: 0.9, type: "spring", stiffness: 80 }
+        { delay: 0.5, duration: 0.9, type: "spring", stiffness: 50 }
       );
     };
 
