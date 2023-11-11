@@ -8,10 +8,17 @@ import {
   productSchema,
   registerAdminSchema,
 } from "./index.schema.js";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { productContext } from "../../providers/productsProvider.jsx";
+import { loginContext } from "../../providers/loginProvider.jsx";
+import { Link } from "react-router-dom";
+import styles from "./style.module.scss";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const LoginForm = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const { login } = useContext(loginContext);
+
   const {
     register,
     handleSubmit,
@@ -19,32 +26,53 @@ export const LoginForm = () => {
   } = useForm({ resolver: zodResolver(loginSchema) });
 
   const submit = (payload) => {
-    console.log(payload);
+    login(payload);
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
-      <StdInput
-        type={"text"}
-        placeholder={"Email"}
-        {...register("email")}
-        error={errors.email}
-      />
-      <StdInput
-        type={"password"}
-        placeholder={"Senha"}
-        {...register("password")}
-        error={errors.password}
-      />
-      <div>
-        <button type="submit">Acessar</button>
-        <button>Cadastre-se</button>
+    <form onSubmit={handleSubmit(submit)} className={styles.form}>
+      <h2 className="title-2">ENTRAR</h2>
+      <div className={styles.inputsDiv}>
+        <StdInput
+          type={"text"}
+          placeholder={"Email"}
+          {...register("email")}
+          error={errors.email}
+        />
+        <StdInput
+          type={isVisible ? "text" : "password"}
+          placeholder={"Senha"}
+          {...register("password")}
+          error={errors.password}
+        />
+        {isVisible ? (
+          <FaEye
+            className={styles.visibleIcon}
+            onClick={() => setIsVisible(false)}
+          />
+        ) : (
+          <FaEyeSlash
+            className={styles.hiddenIcon}
+            onClick={() => setIsVisible(true)}
+          />
+        )}
+      </div>
+      <div className={styles.buttonsDiv}>
+        <button type="submit" className="btn access">
+          ACESSAR
+        </button>
+        <Link to={"/register"} className="btn register">
+          CADASTRE-SE
+        </Link>
       </div>
     </form>
   );
 };
 
 export const RegisterAdminForm = () => {
+  const [isVisiblePass, setIsVisiblePass] = useState(false);
+  const [isVisibleConfirmPass, setIsVisibleConfirm] = useState(false);
+  const { createUser } = useContext(loginContext);
   const {
     register,
     handleSubmit,
@@ -52,17 +80,20 @@ export const RegisterAdminForm = () => {
   } = useForm({ resolver: zodResolver(registerAdminSchema) });
 
   const submit = (payload) => {
-    console.log(payload);
+    createUser(payload);
   };
 
   return (
-    <div>
-      <button>
-        <MdArrowBack size={20} /> Voltar
-      </button>
-      <h2>Cadastrar-se</h2>
-      <p>Seja bem vindo, administrador!</p>
-      <form onSubmit={handleSubmit(submit)}>
+    <div className={styles.registerForm__container}>
+      <Link to={"/login"}>
+        <button className={`${styles.backBtn}`}>
+          <MdArrowBack size={28} />
+          VOLTAR
+        </button>
+      </Link>
+      <h2 className="title-2">CADASTRAR-SE</h2>
+      <p className="paragraph">Seja bem vindo, administrador!</p>
+      <form onSubmit={handleSubmit(submit)} className={styles.form__inputs}>
         <StdInput
           type={"text"}
           placeholder={"Nome"}
@@ -75,19 +106,45 @@ export const RegisterAdminForm = () => {
           {...register("email")}
           error={errors.email}
         />
-        <StdInput
-          type={"password"}
-          placeholder={"Senha"}
-          {...register("password")}
-          error={errors.password}
-        />
-        <StdInput
-          type={"password"}
-          placeholder={"Confirmar senha"}
-          {...register("passValidate")}
-          error={errors.passValidate}
-        />
-        <button>Cadastrar-se</button>
+        <div className={styles.passwordDiv}>
+          <StdInput
+            type={isVisiblePass ? "text" : "password"}
+            placeholder={"Senha"}
+            {...register("password")}
+            error={errors.password}
+          />
+          {isVisiblePass ? (
+            <FaEye
+              className={styles.visibleIcon}
+              onClick={() => setIsVisiblePass(false)}
+            />
+          ) : (
+            <FaEyeSlash
+              className={styles.hiddenIcon}
+              onClick={() => setIsVisiblePass(true)}
+            />
+          )}
+        </div>
+        <div className={styles.confirmPasswordDiv}>
+          <StdInput
+            type={isVisibleConfirmPass ? "text" : "password"}
+            placeholder={"Confirmar senha"}
+            {...register("passValidate")}
+            error={errors.passValidate}
+          />
+          {isVisibleConfirmPass ? (
+            <FaEye
+              className={styles.visibleIcon}
+              onClick={() => setIsVisibleConfirm(false)}
+            />
+          ) : (
+            <FaEyeSlash
+              className={styles.hiddenIcon}
+              onClick={() => setIsVisibleConfirm(true)}
+            />
+          )}
+        </div>
+        <button className="btn registerForm">CADASTRAR-SE</button>
       </form>
     </div>
   );
@@ -110,29 +167,30 @@ export const RegisterProductForm = () => {
       <form onSubmit={handleSubmit(submit)}>
         <StdInput
           type={"text"}
-          placeholder={"Nome"}
+          placeholder={"NOME"}
           {...register("name")}
           error={errors.name}
         />
         <StdInput
           type={"number"}
-          placeholder={"Preço R$"}
+          placeholder={"PREÇO (R$)"}
           {...register("price")}
           error={errors.price}
         />
         <StdInput
           type={"text"}
-          placeholder={"Imagem (url)"}
+          placeholder={"IMAGEM (URL)"}
           {...register("image")}
           error={errors.image}
         />
         <StdTextArea
-          placeholder={"Descriço resumida"}
+          placeholder={"DESCRIÇÃO RESUMIDA"}
           {...register("description")}
           error={errors.description}
         />
-        <button>
-          <LiaPlusCircleSolid size={20} /> Novo produto
+        <button className="btn newProduct">
+          <LiaPlusCircleSolid size={30} />
+          NOVO PRODUTO
         </button>
       </form>
     </div>
@@ -140,12 +198,20 @@ export const RegisterProductForm = () => {
 };
 
 export const UpdateProductForm = () => {
-  const { updateItem } = useContext(productContext);
+  const { updateItem, editingProduct } = useContext(productContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: zodResolver(productSchema) });
+  } = useForm({
+    resolver: zodResolver(productSchema),
+    values: {
+      name: editingProduct.name,
+      price: editingProduct.price,
+      description: editingProduct.description,
+      image: editingProduct.image,
+    },
+  });
 
   const submit = (payload) => {
     updateItem(payload);
@@ -177,8 +243,9 @@ export const UpdateProductForm = () => {
           {...register("description")}
           error={errors.description}
         />
-        <button>
-          <MdOutlineModeEditOutline size={20} /> Salvar Alterações
+        <button className="btn editProduct">
+          <MdOutlineModeEditOutline size={30} />
+          EDITAR PRODUTO
         </button>
       </form>
     </div>

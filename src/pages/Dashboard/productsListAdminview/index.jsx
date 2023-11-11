@@ -6,33 +6,63 @@ import {
   UpdateProductModal,
   ConfirmDeleteModal,
 } from "../../../components";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { productContext } from "../../../providers/productsProvider";
+import { api } from "../../../services/api";
+import styles from "./index.module.scss";
 
 export const ProductsListAdminView = () => {
-  const { deleteItemModal, createProduct, setCreateProduct, editingProduct } =
-    useContext(productContext);
+  const {
+    deleteItemModal,
+    createProduct,
+    setCreateProduct,
+    editingProduct,
+    listProduct,
+    setListProduct,
+  } = useContext(productContext);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const { data } = await api.get("/products");
+        setListProduct(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProducts();
+  }, []);
+
   return (
     <>
-      <nav>
+      <nav className={styles.nav__container}>
         <ul>
           <Link to={"/dashboard"}>
-            <li>Início</li>
+            <li className="navigation-title sm">INÍCIO</li>
           </Link>
           <Link to={"/dashboard/products"}>
-            <li>Produtos</li>
+            <li className="navigation-title sm">PRODUTOS</li>
           </Link>
         </ul>
       </nav>
-      <section>
-        <div>
-          <h1>Produtos</h1>
-          <button onClick={() => setCreateProduct(true)}>
-            <LiaPlusCircleSolid size={20} /> Novo produto{" "}
+      <section className={styles.admin__panel}>
+        <div className={styles.producsSection__header}>
+          <div className={styles.title__container}>
+            <h1 className="title-2">PRODUTOS</h1>
+            <p className="paragraph">Gerencie os produtos do catálogo</p>
+          </div>
+
+          <button
+            onClick={() => setCreateProduct(true)}
+            className="btn newProduct"
+          >
+            <LiaPlusCircleSolid size={30} /> NOVO PRODUTO{" "}
           </button>
         </div>
-        <ul>
-          <ProductCardAdminView />
+        <ul className={styles.productList__container}>
+          {listProduct?.map((product) => {
+            return <ProductCardAdminView product={product} key={product.id} />;
+          })}
         </ul>
       </section>
       {createProduct && <RegisterProductModal />}

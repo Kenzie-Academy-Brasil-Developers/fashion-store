@@ -3,10 +3,10 @@ import { BannerSection, ProductsList, CartModal } from "../../components";
 import { productContext } from "../../providers/productsProvider";
 
 export const HomePage = () => {
-  const { cartIsOpen } = useContext(productContext)
+  const { cartIsOpen } = useContext(productContext);
 
   return (
-    <div>
+    <div className="container homePage">
       {cartIsOpen && <CartModal />}
       <BannerSection />
       <ProductsList />

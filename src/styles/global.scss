@@ -1,14 +1,15 @@
 :root {
-  --font-primary: font-family: "Oswald", sans-serif;
-  --font-secondary: font-family: "Roboto", sans-serif;
+  --font-primary: "Oswald", sans-serif;
+  --font-secondary: "Roboto", sans-serif;
 
-  --title-1: 6.25rem;
-  --title-2: 3.75rem;
-  --title-3: 2rem;
-  --title-4: 24px;
-  --title-5: 1.3125rem;
-  --title-6: 1.1875rem;
-  --title-7: 0.875rem;
+  --title-1: clamp(3.75rem, 18vw, 6.25rem);
+  --title-2: clamp(2.75rem, 13vw, 3.75rem);
+  --title-3: 38px;
+  --title-4: 2rem;
+  --title-5: 1.5rem;
+  --title-6: 1.3125rem;
+  --title-7: 1.1875rem;
+  --title-8: 0.875rem;
 
   --title1-mobile: 3.75rem;
   --title2-mobile: 2.75rem;

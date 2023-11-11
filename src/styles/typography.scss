@@ -1,6 +1,6 @@
 .title-1 {
   font-size: var(--title-1);
-  line-height: 7.5rem;
+  line-height: clamp(5.5rem, 15vw, 7.5rem);
 
   font-weight: var(--weight-2);
   color: var(--black);
@@ -8,7 +8,6 @@
 
 .title-2 {
   font-size: var(--title-2);
-  line-height: 5.5575rem;
 
   font-weight: var(--weight-2);
   color: var(--black);
@@ -17,7 +16,7 @@
 .productCard-title {
   font-family: var(--font-secondary);
 
-  font-size: var(--title-4);
+  font-size: var(--title-6);
   line-height: 1.7581rem;
 
   font-weight: var(--weight-1);
@@ -45,7 +44,7 @@
 .know-more {
   font-family: var(--font-secondary);
 
-  font-size: var(--title-7);
+  font-size: var(--title-8);
   line-height: 1.0256rem;
 
   font-weight: var(--weight-2);
@@ -62,32 +61,6 @@
   color: var(--black);
 }
 
-.button-txt {
-  font-family: var(--font-secondary);
-
-  font-size: var(--sm-price);
-  line-height: 1.3181rem;
-
-  font-weight: var(--weight-2);
-  color: var(--white);
-
-  &.black {
-    color: var(--black);
-  }
-}
-
-.placeholder {
-  font-size: var(--title-5);
-  line-height: 1.945rem;
-
-  font-weight: var(--weight-3);
-  color: var(--opacity);
-
-  &.black {
-    color: var(--black);
-  }
-}
-
 .navigation-title {
   font-size: var(--paragraph);
   line-height: 1.8525rem;
@@ -99,4 +72,12 @@
     font-size: var(--sm-price);
     line-height: 1.6675rem;
   }
+}
+
+.modal-title {
+  color: var(--black);
+  font-weight: var(--weight-2);
+
+  font-size: var(--title-3);
+  line-height: 3.52rem;
 }
