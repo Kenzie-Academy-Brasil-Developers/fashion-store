@@ -27,6 +27,8 @@
       right: 1rem;
 
       cursor: pointer;
+
+      color: var(--black);
     }
 
     .hiddenIcon {
@@ -36,6 +38,8 @@
       right: 1rem;
 
       cursor: pointer;
+
+      color: var(--black);
     }
   }
 
@@ -65,6 +69,62 @@
     align-items: center;
 
     gap: 1rem;
+
+    .passwordDiv {
+      width: 100%;
+
+      position: relative;
+
+      .visibleIcon {
+        position: absolute;
+
+        top: 1.7rem;
+        right: 1.3rem;
+
+        cursor: pointer;
+
+        color: var(--black);
+      }
+
+      .hiddenIcon {
+        position: absolute;
+
+        top: 1.7rem;
+        right: 1.3rem;
+
+        cursor: pointer;
+
+        color: var(--black);
+      }
+    }
+
+    .confirmPasswordDiv {
+      width: 100%;
+
+      position: relative;
+
+      .visibleIcon {
+        position: absolute;
+
+        top: 1.7rem;
+        right: 1.3rem;
+
+        cursor: pointer;
+
+        color: var(--black);
+      }
+
+      .hiddenIcon {
+        position: absolute;
+
+        top: 1.7rem;
+        right: 1.3rem;
+
+        cursor: pointer;
+
+        color: var(--black);
+      }
+    }
 
     input {
       width: 100%;

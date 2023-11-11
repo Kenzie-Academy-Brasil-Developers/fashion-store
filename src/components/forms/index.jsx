@@ -70,6 +70,8 @@ export const LoginForm = () => {
 };
 
 export const RegisterAdminForm = () => {
+  const [isVisiblePass, setIsVisiblePass] = useState(false);
+  const [isVisibleConfirmPass, setIsVisibleConfirm] = useState(false);
   const { createUser } = useContext(loginContext);
   const {
     register,
@@ -104,18 +106,44 @@ export const RegisterAdminForm = () => {
           {...register("email")}
           error={errors.email}
         />
-        <StdInput
-          type={"password"}
-          placeholder={"Senha"}
-          {...register("password")}
-          error={errors.password}
-        />
-        <StdInput
-          type={"password"}
-          placeholder={"Confirmar senha"}
-          {...register("passValidate")}
-          error={errors.passValidate}
-        />
+        <div className={styles.passwordDiv}>
+          <StdInput
+            type={isVisiblePass ? "text" : "password"}
+            placeholder={"Senha"}
+            {...register("password")}
+            error={errors.password}
+          />
+          {isVisiblePass ? (
+            <FaEye
+              className={styles.visibleIcon}
+              onClick={() => setIsVisiblePass(false)}
+            />
+          ) : (
+            <FaEyeSlash
+              className={styles.hiddenIcon}
+              onClick={() => setIsVisiblePass(true)}
+            />
+          )}
+        </div>
+        <div className={styles.confirmPasswordDiv}>
+          <StdInput
+            type={isVisibleConfirmPass ? "text" : "password"}
+            placeholder={"Confirmar senha"}
+            {...register("passValidate")}
+            error={errors.passValidate}
+          />
+          {isVisibleConfirmPass ? (
+            <FaEye
+              className={styles.visibleIcon}
+              onClick={() => setIsVisibleConfirm(false)}
+            />
+          ) : (
+            <FaEyeSlash
+              className={styles.hiddenIcon}
+              onClick={() => setIsVisibleConfirm(true)}
+            />
+          )}
+        </div>
         <button className="btn registerForm">CADASTRAR-SE</button>
       </form>
     </div>
