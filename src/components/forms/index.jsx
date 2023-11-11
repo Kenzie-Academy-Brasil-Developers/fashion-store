@@ -8,14 +8,17 @@ import {
   productSchema,
   registerAdminSchema,
 } from "./index.schema.js";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { productContext } from "../../providers/productsProvider.jsx";
 import { loginContext } from "../../providers/loginProvider.jsx";
 import { Link } from "react-router-dom";
 import styles from "./style.module.scss";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const LoginForm = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const { login } = useContext(loginContext);
+
   const {
     register,
     handleSubmit,
@@ -37,11 +40,22 @@ export const LoginForm = () => {
           error={errors.email}
         />
         <StdInput
-          type={"password"}
+          type={isVisible ? "text" : "password"}
           placeholder={"Senha"}
           {...register("password")}
           error={errors.password}
         />
+        {isVisible ? (
+          <FaEye
+            className={styles.visibleIcon}
+            onClick={() => setIsVisible(false)}
+          />
+        ) : (
+          <FaEyeSlash
+            className={styles.hiddenIcon}
+            onClick={() => setIsVisible(true)}
+          />
+        )}
       </div>
       <div className={styles.buttonsDiv}>
         <button type="submit" className="btn access">
