@@ -1,5 +1,5 @@
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { HiOutlineUser } from "react-icons/hi";
+import { TbLogout2 } from "react-icons/tb";
 import logoImg from "../../assets/FAshionSTORE.png";
 import { useContext } from "react";
 import { productContext } from "../../providers/productsProvider";
@@ -40,7 +40,7 @@ export const AppHeader = () => {
             pathname != "/dashboard/products") ? (
             <div className={styles.icons__div}>
               <button onClick={goToLoginPage}>
-                <HiOutlineUser size={30} />
+                <TbLogout2 size={25} />
               </button>
               <button onClick={() => setCartIsOpen(true)}>
                 <MdOutlineShoppingCart size={30} />
