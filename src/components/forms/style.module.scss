@@ -62,12 +62,15 @@
 
     display: flex;
     flex-direction: column;
-    align-items: center;
 
-    gap: 1rem;
+    gap: 1.2rem;
 
     .passwordDiv {
       width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
 
       position: relative;
 
@@ -96,6 +99,10 @@
 
     .confirmPasswordDiv {
       width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
 
       position: relative;
 
