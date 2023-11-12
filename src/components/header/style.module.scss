@@ -23,7 +23,12 @@
   }
 }
 
-.cart__headerContainer {
+.icons__headerContainer {
   display: flex;
   align-items: end;
+
+  .icons__div {
+    display: flex;
+    gap: 0.5rem;
+  }
 }

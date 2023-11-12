@@ -26,7 +26,6 @@ export const CartModal = () => {
     document.addEventListener("click", handleClickOutsideModal);
     document.addEventListener("keydown", handleKeyPress);
   }, [cartIsOpen]);
-  console.log("cartIsOpen", cartIsOpen);
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutsideModal);
