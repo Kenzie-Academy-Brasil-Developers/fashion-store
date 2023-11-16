@@ -13,6 +13,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <App />
       </ProductProvider>
     </LoginProvider>
-  </BrowserRouter>
+  </BrowserRouter>,
   // </React.StrictMode>,
 );

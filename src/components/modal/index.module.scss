@@ -80,7 +80,7 @@
 
   textarea {
     resize: none;
-    width: 35.5rem;
+    width: 100%;
     height: 6.25rem;
     border: none;
     padding-top: 1rem;
@@ -96,6 +96,23 @@
       font-weight: var(--weight-3);
       color: var(--opacity);
     }
+  }
+
+  input {
+    width: 100%;
+  }
+
+  @media (max-width: 460px) {
+    button {
+      align-self: center;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .productModal__container {
+    width: 80%;
   }
 }
 
@@ -121,6 +138,12 @@
   -webkit-box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
 }
+
+// @media (max-width: 500px) {
+//   .deleteModal__container {
+//     margin: 1rem;
+//   }
+// }
 
 .deleModal__closeBtn {
   position: absolute;
