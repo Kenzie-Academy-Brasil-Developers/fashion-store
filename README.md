@@ -41,6 +41,6 @@ Bem-vindo ao Fashion Store, um projeto que reúne estilo e praticidade! Esta apl
 <hr>
 
 ### Desenvolvedores:
-[@joaolucasgusmao](https://github.com/joaolucasgusmao)<br/>
-[@andreycaetano](https://github.com/andreycaetano)<br/>
-[@CodeBernardo](https://github.com/CodeBernardo)<br/>
+<a href="https://github.com/joaolucasgusmao" target="_blank">@joaolucasgusmao</a><br/>
+<a href="https://github.com/andreycaetano" target="_blank">@andreycaetano</a><br/>
+<a href="https://github.com/CodeBernardo" target="_blank">@CodeBernardo</a><br/>
