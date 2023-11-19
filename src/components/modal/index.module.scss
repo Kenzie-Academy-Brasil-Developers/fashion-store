@@ -64,6 +64,8 @@
   -webkit-box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
 
+  animation: slide-down 0.2s ease-in-out forwards;
+
   h2 {
     margin-bottom: 1.25rem;
   }
@@ -137,6 +139,8 @@
   box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.2);
+
+  animation: slide-down 0.2s ease-in-out forwards;
 }
 
 .deleModal__closeBtn {
@@ -151,4 +155,16 @@
   align-self: center;
   display: flex;
   gap: 0.625rem;
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
