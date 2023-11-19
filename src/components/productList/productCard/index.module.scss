@@ -68,16 +68,20 @@
 }
 
 .ProductCardAdminView__container {
-  display: flex;
-  position: relative;
-  align-items: center;
   width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 auto;
+
+  position: relative;
   padding: 1%;
   border-radius: 6px;
   img {
-    max-height: 12rem;
-    object-fit: contain;
-    margin-right: 1.5rem;
+    height: 30rem;
+    width: 22rem;
   }
   &:hover {
     background-color: var(--gray);
@@ -91,8 +95,11 @@
 .ProductCardAdminView__Btncontainer {
   display: flex;
   gap: 1rem;
+
   position: absolute;
-  right: 20px;
+
+  right: 7.625rem;
+  bottom: 7.8125rem;
 
   .icon {
     cursor: pointer;
@@ -100,7 +107,43 @@
 }
 
 .ProductCardAdminView__info {
-  h2 {
-    margin-bottom: 0.5rem;
+  margin-top: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  p {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .ProductCardAdminView__container {
+    width: 100%;
+    height: 210px;
+
+    padding: 1rem;
+
+    margin: initial;
+
+    flex-direction: row;
+    gap: 2rem;
+
+    img {
+      width: 11.25rem;
+      height: max-content;
+    }
+
+    .ProductCardAdminView__info {
+      align-items: start;
+    }
+  }
+
+  .ProductCardAdminView__Btncontainer {
+    right: 1rem;
+    top: 6rem;
   }
 }

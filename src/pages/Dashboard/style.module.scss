@@ -1,24 +1,29 @@
 .nav__container {
-  margin-left: 5rem;
-  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   ul {
     display: flex;
     gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-}
-
-.title__container {
-  h1 {
-    margin-bottom: 1rem;
   }
 }
 
 .admin__welcome {
-  margin: 0 5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+
   min-height: 67vh;
+
+  margin: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .admin__welcome {
+    margin: 0 5rem;
+  }
+  .nav__container {
+    justify-content: flex-start;
+    margin-left: 5rem;
+  }
 }

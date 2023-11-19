@@ -32,13 +32,14 @@ export const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit(submit)} className={styles.form}>
       <h2 className="title-2">ENTRAR</h2>
-      <div className={styles.inputsDiv}>
-        <StdInput
-          type={"text"}
-          placeholder={"Email"}
-          {...register("email")}
-          error={errors.email}
-        />
+
+      <StdInput
+        type={"text"}
+        placeholder={"Email"}
+        {...register("email")}
+        error={errors.email}
+      />
+      <div className={styles.inputDiv}>
         <StdInput
           type={isVisible ? "text" : "password"}
           placeholder={"Senha"}

@@ -46,7 +46,7 @@ export const ProductsListAdminView = () => {
         </ul>
       </nav>
       <section className={styles.admin__panel}>
-        <div className={styles.producsSection__header}>
+        <div className={styles.productsSection__header}>
           <div className={styles.title__container}>
             <h1 className="title-2">PRODUTOS</h1>
             <p className="paragraph">Gerencie os produtos do catálogo</p>

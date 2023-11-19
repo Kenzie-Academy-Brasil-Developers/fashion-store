@@ -1,4 +1,5 @@
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { TbLogout2 } from "react-icons/tb";
 import logoImg from "../../assets/FAshionSTORE.png";
 import { useContext } from "react";
 import { productContext } from "../../providers/productsProvider";
@@ -21,6 +22,10 @@ export const AppHeader = () => {
     navigate("/");
   };
 
+  const goToLoginPage = () => {
+    navigate("/login");
+  };
+
   return (
     <header
       className={`${styles.header} ${
@@ -29,11 +34,14 @@ export const AppHeader = () => {
     >
       <div className={divClassName}>
         <img onClick={backToHome} src={logoImg} alt="fashion logo" />
-        <div className={styles.cart__headerContainer}>
+        <div className={styles.icons__headerContainer}>
           {pathname === "/" ||
           (pathname.includes("/product") &&
             pathname != "/dashboard/products") ? (
-            <div>
+            <div className={styles.icons__div}>
+              <button onClick={goToLoginPage}>
+                <TbLogout2 size={25} />
+              </button>
               <button onClick={() => setCartIsOpen(true)}>
                 <MdOutlineShoppingCart size={30} />
               </button>
