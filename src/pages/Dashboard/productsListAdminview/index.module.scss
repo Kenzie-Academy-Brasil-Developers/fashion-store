@@ -71,3 +71,9 @@
     flex-wrap: wrap;
   }
 }
+
+@media (min-width: 1348px) {
+  .productList__container {
+    overflow: hidden;
+  }
+}
