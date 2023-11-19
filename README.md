@@ -38,3 +38,9 @@ Bem-vindo ao Fashion Store, um projeto que reúne estilo e praticidade! Esta apl
 - React Router DOM
 - Axios
 - Framer Motion
+<hr>
+
+### Desenvolvedores:
+[@joaolucasgusmao](https://github.com/joaolucasgusmao)<br/>
+[@andreycaetano](https://github.com/andreycaetano)<br/>
+[@CodeBernardo](https://github.com/CodeBernardo)<br/>
