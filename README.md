@@ -1,8 +1,7 @@
-### Fashion Store
+# Fashion Store
 Bem-vindo ao Fashion Store, um projeto que reúne estilo e praticidade! Esta aplicação proporciona uma experiência de compras online, onde os usuários podem se cadastrar, fazer login e explorar uma variedade de peças de roupa.
-<hr>
 
-### Funcionalidades: 
+## Funcionalidades: 
 
 1. Cadastro e Login:
 - Os usuários podem criar facilmente suas contas no Fashion Store, garantindo uma experiência personalizada.
@@ -26,9 +25,8 @@ Bem-vindo ao Fashion Store, um projeto que reúne estilo e praticidade! Esta apl
 
 6. Integração de API para Manipulação de Dados:
 - Utilizamos uma API para fornecer dados dinâmicos, enriquecendo a experiência do usuário com informações em tempo real.
-<hr>
 
-### Tecnologias utilizadas: 
+## Tecnologias utilizadas: 
 - React JS
 - SASS
 - React Toastify
@@ -38,9 +36,8 @@ Bem-vindo ao Fashion Store, um projeto que reúne estilo e praticidade! Esta apl
 - React Router DOM
 - Axios
 - Framer Motion
-<hr>
 
-### Desenvolvedores:
+## Desenvolvedores:
 <a href="https://github.com/joaolucasgusmao" target="_blank">@joaolucasgusmao</a><br/>
 <a href="https://github.com/andreycaetano" target="_blank">@andreycaetano</a><br/>
 <a href="https://github.com/CodeBernardo" target="_blank">@CodeBernardo</a><br/>
