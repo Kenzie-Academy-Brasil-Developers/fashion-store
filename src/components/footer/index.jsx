@@ -5,7 +5,7 @@ export const AppFooter = () => {
     <>
       <footer className={styles.footer}>
         <p className={styles.text}>
-          Todos os direitos reservados - Kenzie Academy Brasil
+          Todos os direitos reservados - Fashion Store
         </p>
       </footer>
     </>

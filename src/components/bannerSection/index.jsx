@@ -33,7 +33,7 @@ const BannerSection = () => {
           animate={{ x: 0, opacity: 1 }}
           className="title-1"
         >
-          KENZIE FASHION STORE
+          FASHION STORE
         </motion.h1>
 
         <motion.div
